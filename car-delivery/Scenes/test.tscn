@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://blplbnxhbnqjn"]
+
+[ext_resource type="PackedScene" uid="uid://cjrjmkf1djsdu" path="res://Assets/City/gltf/car_sedan.gltf" id="1_lc1oi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8od7v"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qc4db"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lc1oi"]
+size = Vector3(0.4, 0.4, 0.9)
+
+[node name="Test" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_8od7v")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_qc4db")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.853769, 0.520652, 0, -0.520652, 0.853769, 0, 20.961, 24.362)
+
+[node name="car_sedan2" parent="." instance=ExtResource("1_lc1oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92793, 1.08323, 0.635878)
+
+[node name="Camera3D" type="Camera3D" parent="car_sedan2"]
+transform = Transform3D(-1, 0, 8.74228e-08, 2.17633e-08, 0.968518, 0.248943, -8.46705e-08, 0.248943, -0.968518, 0, 0.554511, -0.980097)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="car_sedan2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.141242, 0)
+shape = SubResource("BoxShape3D_lc1oi")

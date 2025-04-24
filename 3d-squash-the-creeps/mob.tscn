@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2om6qpla1kh"]
 
 [ext_resource type="PackedScene" uid="uid://ceqw66vaw1s24" path="res://art/mob.glb" id="1_0mu5g"]
-[ext_resource type="Script" path="res://mob.gd" id="1_kybam"]
+[ext_resource type="Script" uid="uid://dnamvnpi2ul8s" path="res://mob.gd" id="1_kybam"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cbrkj"]
 height = 0.9
