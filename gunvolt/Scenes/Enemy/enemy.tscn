@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bc5siosyqtb57"]
+
+[ext_resource type="Script" uid="uid://cqcnvr3fmb4hw" path="res://Scripts/Enemy/enemy.gd" id="1_enemy"]
+[ext_resource type="Script" uid="uid://b6t0hwo0crrw" path="res://Scripts/Components/health_component.gd" id="2_health"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_standing"]
+size = Vector2(14, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lying"]
+size = Vector2(28, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_contact"]
+size = Vector2(28, 28)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=191023857]
+collision_layer = 8
+script = ExtResource("1_enemy")
+
+[node name="StandingShape" type="CollisionShape2D" parent="." unique_id=228823115]
+shape = SubResource("RectangleShape2D_standing")
+
+[node name="LyingShape" type="CollisionShape2D" parent="." unique_id=730973525]
+shape = SubResource("RectangleShape2D_lying")
+disabled = true
+
+[node name="Visual" type="Polygon2D" parent="." unique_id=991052496]
+color = Color(0.85, 0.1, 0.1, 1)
+polygon = PackedVector2Array(-7, -14, 7, -14, 7, 14, -7, 14)
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1182878161]
+script = ExtResource("2_health")
+
+[node name="ContactHitbox" type="Area2D" parent="." unique_id=2138297922]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactHitbox" unique_id=1519296585]
+shape = SubResource("RectangleShape2D_contact")
+
+[connection signal="body_entered" from="ContactHitbox" to="." method="_on_contact_hitbox_body_entered"]

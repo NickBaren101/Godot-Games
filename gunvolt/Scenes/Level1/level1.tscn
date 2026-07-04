@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://d2fh6nw8yj3rt"]
+
+[ext_resource type="PackedScene" uid="uid://dfqx7v3kxam2" path="res://Scenes/Player/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://bq7x4km9dl5vs" path="res://Scenes/Teleporter/teleporter.tscn" id="2_teleporter"]
+[ext_resource type="PackedScene" path="res://Scenes/Enemy/enemy.tscn" id="3_enemy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gs"]
+size = Vector2(160, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ph"]
+size = Vector2(120, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1a"]
+size = Vector2(60, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ge"]
+size = Vector2(200, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1b"]
+size = Vector2(80, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1c"]
+size = Vector2(60, 8)
+
+[node name="Level1" type="Node2D"]
+
+[node name="Ground_Start" type="StaticBody2D" parent="." unique_id=100000001]
+position = Vector2(80, 172)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground_Start" unique_id=100000002]
+shape = SubResource("RectangleShape2D_gs")
+
+[node name="Visual" type="Polygon2D" parent="Ground_Start" unique_id=100000003]
+color = Color(0.25, 0.25, 0.25, 1)
+polygon = PackedVector2Array(-80, -8, 80, -8, 80, 8, -80, 8)
+
+[node name="Ramp_Up_1" type="StaticBody2D" parent="." unique_id=100000010]
+position = Vector2(160, 180)
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ramp_Up_1" unique_id=100000011]
+polygon = PackedVector2Array(0, -16, 80, -48, 80, 0, 0, 0)
+
+[node name="Visual" type="Polygon2D" parent="Ramp_Up_1" unique_id=100000012]
+color = Color(0.25, 0.25, 0.25, 1)
+polygon = PackedVector2Array(0, -16, 80, -48, 80, 0, 0, 0)
+
+[node name="Platform_High" type="StaticBody2D" parent="." unique_id=100000020]
+position = Vector2(300, 140)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform_High" unique_id=100000021]
+shape = SubResource("RectangleShape2D_ph")
+
+[node name="Visual" type="Polygon2D" parent="Platform_High" unique_id=100000022]
+color = Color(0.25, 0.25, 0.25, 1)
+polygon = PackedVector2Array(-60, -8, 60, -8, 60, 8, -60, 8)
+
+[node name="Platform_1way_A" type="StaticBody2D" parent="." unique_id=100000030]
+position = Vector2(275, 112)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform_1way_A" unique_id=100000031]
+shape = SubResource("RectangleShape2D_p1a")
+one_way_collision = true
+
+[node name="Visual" type="Polygon2D" parent="Platform_1way_A" unique_id=100000032]
+color = Color(0.35, 0.35, 0.35, 1)
+polygon = PackedVector2Array(-30, -4, 30, -4, 30, 4, -30, 4)
+
+[node name="Ramp_Down_1" type="StaticBody2D" parent="." unique_id=100000040]
+position = Vector2(360, 180)
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ramp_Down_1" unique_id=100000041]
+polygon = PackedVector2Array(0, -48, 80, -16, 80, 0, 0, 0)
+
+[node name="Visual" type="Polygon2D" parent="Ramp_Down_1" unique_id=100000042]
+color = Color(0.25, 0.25, 0.25, 1)
+polygon = PackedVector2Array(0, -48, 80, -16, 80, 0, 0, 0)
+
+[node name="Ground_End" type="StaticBody2D" parent="." unique_id=100000050]
+position = Vector2(540, 172)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground_End" unique_id=100000051]
+shape = SubResource("RectangleShape2D_ge")
+
+[node name="Visual" type="Polygon2D" parent="Ground_End" unique_id=100000052]
+color = Color(0.25, 0.25, 0.25, 1)
+polygon = PackedVector2Array(-100, -8, 100, -8, 100, 8, -100, 8)
+
+[node name="Platform_1way_B" type="StaticBody2D" parent="." unique_id=100000060]
+position = Vector2(500, 144)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform_1way_B" unique_id=100000061]
+shape = SubResource("RectangleShape2D_p1b")
+one_way_collision = true
+
+[node name="Visual" type="Polygon2D" parent="Platform_1way_B" unique_id=100000062]
+color = Color(0.35, 0.35, 0.35, 1)
+polygon = PackedVector2Array(-40, -4, 40, -4, 40, 4, -40, 4)
+
+[node name="Platform_1way_C" type="StaticBody2D" parent="." unique_id=100000070]
+position = Vector2(570, 120)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform_1way_C" unique_id=100000071]
+shape = SubResource("RectangleShape2D_p1c")
+one_way_collision = true
+
+[node name="Visual" type="Polygon2D" parent="Platform_1way_C" unique_id=100000072]
+color = Color(0.35, 0.35, 0.35, 1)
+polygon = PackedVector2Array(-30, -4, 30, -4, 30, 4, -30, 4)
+
+[node name="Player" parent="." unique_id=100000080 instance=ExtResource("1_player")]
+position = Vector2(24, 146)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=100000081]
+limit_left = 0
+limit_right = 640
+limit_top = 0
+limit_bottom = 180
+
+[node name="Enemy_Standing" parent="." unique_id=100000200 instance=ExtResource("3_enemy")]
+position = Vector2(550, 150)
+
+[node name="Enemy_Lying" parent="." unique_id=100000201 instance=ExtResource("3_enemy")]
+position = Vector2(480, 160)
+posture = 1
+
+[node name="Teleporter" parent="." unique_id=100000090 instance=ExtResource("2_teleporter")]
+position = Vector2(630, 148)
+target_scene = "res://Scenes/Level2/level2.tscn"

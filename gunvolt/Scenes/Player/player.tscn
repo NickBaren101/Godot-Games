@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://dfqx7v3kxam2"]
+
+[ext_resource type="Script" uid="uid://dmg7dhvnem1sb" path="res://Scripts/Player/player.gd" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://cn4btg8hp2d7" path="res://Scenes/Bullet/bullet.tscn" id="2_a3d8c"]
+[ext_resource type="Texture2D" uid="uid://blqmvlus1s687" path="res://Assets/Sprites/Player/Idle/Sprite-0001.png" id="3_idle1"]
+[ext_resource type="Texture2D" uid="uid://drn2mde5qjagn" path="res://Assets/Sprites/Player/Run/Sprite-0002.png" id="4_run2"]
+[ext_resource type="Texture2D" uid="uid://dgdevvo3n3bde" path="res://Assets/Sprites/Player/Run/Sprite-0003.png" id="5_run3"]
+[ext_resource type="Texture2D" uid="uid://b55ephqhm8p35" path="res://Assets/Sprites/Player/Run/Sprite-0004.png" id="6_run4"]
+[ext_resource type="Texture2D" uid="uid://bxb72xbkbgtng" path="res://Assets/Sprites/Player/Run/Sprite-0005.png" id="7_run5"]
+[ext_resource type="Texture2D" uid="uid://np524jinpqnu" path="res://Assets/Sprites/Player/Run/Sprite-0006.png" id="8_run6"]
+[ext_resource type="Texture2D" uid="uid://c4wifd7fpiv5n" path="res://Assets/Sprites/Player/Jump/Sprite-0011.png" id="9_jump11"]
+[ext_resource type="Texture2D" uid="uid://415ya3l2mouk" path="res://Assets/Sprites/Player/Jump/Sprite-0012.png" id="10_jump12"]
+[ext_resource type="Texture2D" uid="uid://bec5b7u3qknqr" path="res://Assets/Sprites/Player/Shoot horizontal/Sprite-0007.png" id="11_sh7"]
+[ext_resource type="Texture2D" uid="uid://c2ntr21inu0yo" path="res://Assets/Sprites/Player/Shoot horizontal/Sprite-0008.png" id="12_sh8"]
+[ext_resource type="Texture2D" uid="uid://chni4773mrmmd" path="res://Assets/Sprites/Player/Shoot Up/Sprite-0009.png" id="13_su9"]
+[ext_resource type="Texture2D" uid="uid://cos0b0a1r18tt" path="res://Assets/Sprites/Player/Shoot Up/Sprite-0010.png" id="14_su10"]
+[ext_resource type="Texture2D" uid="uid://cfvnln4ai1hxx" path="res://Assets/Sprites/Player/Shoot Down/Sprite-0013.png" id="15_sd13"]
+[ext_resource type="Texture2D" uid="uid://bhrg5m1c1mcjr" path="res://Assets/Sprites/Player/Shoot Down/Sprite-0014.png" id="16_sd14"]
+[ext_resource type="Script" path="res://Scripts/Components/health_component.gd" id="17_health"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Player/Damage/Sprite-0015.png" id="18_dmg15"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
+size = Vector2(16, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_player"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_sd13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_sd14")
+}],
+"loop": false,
+"name": &"crouch",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_jump12")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_idle1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_jump11")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_su9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_su10")
+}],
+"loop": false,
+"name": &"look_up",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_run2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_run3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_run4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_run5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_run6")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_sh7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_sh8")
+}],
+"loop": false,
+"name": &"shoot_horizontal",
+"speed": 13.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_dmg15")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 8.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=1444819803 groups=["player"]]
+collision_layer = 2
+collision_mask = 17
+script = ExtResource("1_player")
+bullet_scene = ExtResource("2_a3d8c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=264487386]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_player")
+
+[node name="BulletSpawnHorizontal" type="Marker2D" parent="." unique_id=1605768689]
+position = Vector2(8, 5)
+
+[node name="BulletSpawnUp" type="Marker2D" parent="." unique_id=1605768690]
+position = Vector2(-2, -14)
+
+[node name="BulletSpawnLow" type="Marker2D" parent="." unique_id=1605768691]
+position = Vector2(8, 14)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=616193028]
+sprite_frames = SubResource("SpriteFrames_player")
+animation = &"idle"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1444819810]
+script = ExtResource("17_health")
+max_health = 3

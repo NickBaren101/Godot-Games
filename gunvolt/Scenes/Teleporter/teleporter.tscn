@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bq7x4km9dl5vs"]
+
+[ext_resource type="Script" path="res://Scripts/Teleporter/teleporter.gd" id="1_telescript"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tele"]
+size = Vector2(16, 32)
+
+[node name="Teleporter" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_telescript")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tele")
+
+[node name="Visual" type="Polygon2D" parent="."]
+color = Color(0, 1, 1, 0.85)
+polygon = PackedVector2Array(-8, -16, 8, -16, 8, 16, -8, 16)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

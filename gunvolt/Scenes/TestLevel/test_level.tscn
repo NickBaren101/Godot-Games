@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b8r5e2p6y1n0"]
+
+[ext_resource type="PackedScene" uid="uid://dfqx7v3kxam2" path="res://Scenes/Player/player.tscn" id="1_player"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(320, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
+size = Vector2(80, 8)
+
+[node name="TestLevel" type="Node2D" unique_id=995963445]
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=438482872]
+position = Vector2(160, 172)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=474151134]
+shape = SubResource("RectangleShape2D_ground")
+
+[node name="Visual" type="Polygon2D" parent="Ground" unique_id=1316962006]
+color = Color(0.25, 0.25, 0.25, 1)
+polygon = PackedVector2Array(-160, -8, 160, -8, 160, 8, -160, 8)
+
+[node name="Platform" type="StaticBody2D" parent="." unique_id=2138180700]
+position = Vector2(220, 144)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=535755941]
+shape = SubResource("RectangleShape2D_platform")
+one_way_collision = true
+
+[node name="Visual" type="Polygon2D" parent="Platform" unique_id=1795579661]
+color = Color(0.25, 0.25, 0.25, 1)
+polygon = PackedVector2Array(-40, -4, 40, -4, 40, 4, -40, 4)
+
+[node name="Player" parent="." unique_id=1334039675 instance=ExtResource("1_player")]
+position = Vector2(61, 146)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=910081805]
+position = Vector2(160, 90)
