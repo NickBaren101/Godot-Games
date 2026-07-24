@@ -1,5 +1,5 @@
 {
-  "contact_name": "didi",
+  "contact_name": "sis",
   "unsaid_header": "Things you didn't say",
   "opening": [
 	{ "text": "You're at the airport.", "delay": 0.8 },
@@ -29,10 +29,10 @@
 	},
 	{
 	  "id": "a1_aman", "act": 1, "start": true,
-	  "text": "aman told me. he saw you at the hospital last week",
+	  "text": "adam told me. he saw you at the hospital last week",
 	  "reply": [
-		"Aman.",
-        "He was here Tuesday. Sat with Papa for an hour so I could go wash my face."
+		"Adam.",
+        "He was here Tuesday. Sat with Dad for an hour so I could go wash my face."
 	  ],
 	  "unlocks": ["a1_how", "a1_why"],
 	  "removes": ["a1_deflect"],
@@ -51,8 +51,8 @@
 	  "unlocks": ["a1_awake"],
 	  "removes": ["a1_aman"],
 	  "silence": [
-		{ "idle_time": 16, "text": "It was Aman, wasn't it." },
-		{ "idle_time": 20, "text": "He's the only one of your people who still looks me in the eye at the sabzi mandi.", "final": true }
+		{ "idle_time": 16, "text": "It was Adam, wasn't it." },
+		{ "idle_time": 20, "text": "He's the only one of your people who still looks me in the eye at the market.", "final": true }
 	  ]
 	},
 	{
@@ -75,33 +75,33 @@
 	},
 	{
 	  "id": "a1_ma", "act": 1, "start": false,
-	  "text": "where's ma",
+	  "text": "where's mum",
 	  "reply": [
-		"Asleep in the family room. I put my shawl over her.",
-        "She won't lie down properly. Keeps her chappals on. Ready to run somewhere I suppose."
+		"Asleep in the waiting room. I put my coat over her.",
+        "She won't lie down properly. Keeps her shoes on. Ready to run somewhere I suppose."
 	  ],
 	  "unlocks": ["a1_ma2"]
 	},
 	{
 	  "id": "a1_ma2", "act": 1, "start": false,
-	  "text": "is ma angry with me",
+	  "text": "is mum angry with me",
 	  "reply": [
 		"No.",
-        "She took her chappals off when I told her you were coming."
+        "She took her shoes off when I told her you were coming."
 	  ]
 	},
 	{
 	  "id": "a1_land", "act": 1, "start": false,
 	  "text": "i'm at the gate. i land at 9:10, straight to the hospital from there",
 	  "reply": [
-		"Montu will get you. Gate 2.",
+		"Danny will get you. Gate 2.",
         "He still has the same car. You'll see it and feel like nothing changed. Then you'll get here."
 	  ],
 	  "unlocks": ["a1_montu"]
 	},
 	{
 	  "id": "a1_montu", "act": 1, "start": false,
-	  "text": "is he still driving that santro. tell him not to bring the dog, it sheds everywhere",
+	  "text": "is he still driving that old wreck. tell him not to bring the dog, it sheds everywhere",
 	  "reply": [
 		"The dog died in January.",
         "There's a new one. It also sheds."
@@ -109,14 +109,14 @@
 	},
 	{
 	  "id": "a1_why", "act": 1, "start": false,
-	  "text": "why didn't you tell me. any of you. i had to hear my own father is dying from aman",
+	  "text": "why didn't you tell me. any of you. i had to hear my own father is dying from adam",
 	  "reply": [
         "You changed the number."
 	  ],
 	  "unlocks": ["a1_sorry", "a2_knowing"],
 	  "silence": [
 		{ "idle_time": 18, "text": "I tried the old one anyway. In March." },
-		{ "idle_time": 22, "text": "A man in Noida answered. He was nice about it. Said people call for you sometimes.", "final": true }
+		{ "idle_time": 22, "text": "Some man answered. He was nice about it. Said people call for you sometimes.", "final": true }
 	  ]
 	},
 	{
@@ -132,7 +132,7 @@
 	  "text": "what did the doctor actually say. tell me straight",
 	  "reply": [
 		"Three days ago they asked us whether to keep going with the full treatment. All of it.",
-        "I said no. I decided on the stairwell outside radiology. I had about four minutes and a paper cup of chai."
+        "I said no. I decided on the stairwell outside radiology. I had about four minutes and a paper cup of tea."
 	  ],
 	  "unlocks": ["a2_alone", "a2_how_long"],
 	  "removes": ["a1_battery", "a1_aman", "a1_deflect", "a1_how", "a1_awake", "a1_ma", "a1_ma2", "a1_land", "a1_montu", "a1_why", "a1_sorry"],
@@ -153,7 +153,7 @@
 	},
 	{
 	  "id": "a2_papa_knew", "act": 2, "start": false,
-	  "text": "did papa know about the decision. did he agree to it",
+	  "text": "did dad know about the decision. did he agree to it",
 	  "reply": [
 		"He was awake for that part. He told the doctor to ask me.",
         "Said I'd earned the right to decide. Earned."
@@ -165,7 +165,7 @@
 	  "text": "does he ever ask about me",
 	  "reply": [
 		"Every Sunday after his bath. Same question, like it's new.",
-        "He keeps your photo in his wallet. The Nainital one. It's gone soft at the corners."
+        "He keeps your photo in his wallet. The one from the lake trip. It's gone soft at the corners."
 	  ]
 	},
 	{
@@ -179,7 +179,7 @@
 	},
 	{
 	  "id": "a2_know_coming", "act": 2, "start": false,
-	  "text": "does papa know i'm coming",
+	  "text": "does dad know i'm coming",
 	  "reply": [
 		"No.",
         "I'll tell him when your plane is actually in the air. I've stopped giving him things that might not arrive."
@@ -204,7 +204,7 @@
 	  "silence": [
 		{ "idle_time": 16, "text": "No one's asked me that since February, actually." },
 		{ "idle_time": 20, "text": "Fine is the wrong word. Upright. I'm upright and I know where the good bathroom is to cry in." },
-		{ "idle_time": 26, "text": "Sixth floor, past the chemist. For your information. For tomorrow.", "final": true }
+		{ "idle_time": 26, "text": "Sixth floor, past the pharmacy. For your information. For tomorrow.", "final": true }
 	  ]
 	},
 	{
@@ -212,12 +212,12 @@
 	  "text": "have you eaten anything",
 	  "reply": [
 		"There's a machine downstairs that makes something brown.",
-        "I've had four. Meena bua brought parathas at midnight but nobody could."
+        "I've had four. Aunt Nora brought sandwiches at midnight but nobody could."
 	  ]
 	},
 	{
 	  "id": "a2_knowing", "act": 2, "start": false,
-	  "text": "you knew where i live. aman knows. you could have reached me any time you wanted",
+	  "text": "you knew where i live. adam knows. you could have reached me any time you wanted",
 	  "reply": [
 		"I know your building. I know the flat number. I know your Sunday market.",
         "Knowing was never the problem."
@@ -226,15 +226,15 @@
 	},
 	{
 	  "id": "a2_diwali", "act": 2, "start": false,
-	  "text": "every diwali i typed out a message to ma and deleted it before sending. i don't know why i'm telling you this",
+	  "text": "every new year's i typed out a message to mum and deleted it before sending. i don't know why i'm telling you this",
 	  "reply": [
-		"One got through. Two Diwalis ago. Unknown number, just the word happy, nothing after.",
-        "She saved the number as beta. Never told anyone. Not even me."
+		"One got through. New Year's, two years back. Unknown number, just the word happy, nothing after.",
+        "Mum saved the number as home. Never told anyone. Not even me."
 	  ]
 	},
 	{
 	  "id": "a3_three_weeks", "act": 3, "start": true,
-	  "text": "aman told me three weeks ago. i've had the ticket open in a tab for three weeks. i couldn't press buy. i don't know what was wrong with me",
+	  "text": "adam told me three weeks ago. i've had the ticket open in a tab for three weeks. i couldn't press buy. i don't know what was wrong with me",
 	  "reply": [
 		"Three weeks.",
 		"You pressed it tonight.",
@@ -245,7 +245,7 @@
 	},
 	{
 	  "id": "a3_scared", "act": 3, "start": true,
-	  "text": "i'm scared didi",
+	  "text": "i'm scared sis",
 	  "reply": [
 		"me too",
         "First time anyone in this family has said that out loud, I think."
@@ -282,14 +282,14 @@
 	  "id": "a3_then_why", "act": 3, "start": false,
 	  "text": "then why",
 	  "reply": [
-		"Papa told us not to.",
+		"Dad told us not to.",
 		"He said if you wanted to know us, you knew the number.",
         "I told him it was cruel. He said so was leaving."
 	  ]
 	},
 	{
 	  "id": "a3_which_part", "act": 3, "start": false,
-	  "text": "for leaving the way i left. for the number. for making aman do this family's job for three years",
+	  "text": "for leaving the way i left. for the number. for making adam do this family's job for three years",
 	  "reply": [
 		"Thank you.",
         "That's all I wanted. The list. Someone else holding the list for a minute."
@@ -308,10 +308,10 @@
   "waits": [
 	{ "act": 1, "text": "Still there." },
 	{ "act": 1, "text": "I can see your dots starting and stopping. Type the thing." },
-	{ "act": 1, "text": "Aman shows me photos of you sometimes. From his phone. You look thin in them." },
-	{ "act": 2, "text": "The corridor smells like phenyl and someone's marigolds. There's a puja going in the next ward." },
+	{ "act": 1, "text": "Adam shows me photos of you sometimes. From his phone. You look thin in them." },
+	{ "act": 2, "text": "The corridor smells like bleach and someone's flowers. A family is praying in the next ward." },
 	{ "act": 2, "text": "He checks the weather where you are. Every night after the news. He knew it rained on you yesterday." },
-	{ "act": 3, "text": "His hand keeps doing the two finger tap. Like he's checking the shop shutter one more time." },
+	{ "act": 3, "text": "His hand keeps doing the two finger tap. Like he's locking up the shop again." },
 	{ "act": 3, "text": "If you're rationing that phone, stop. This is the thing you were saving it for." }
   ],
   "finale": {
@@ -323,7 +323,7 @@
 	  { "id": "f_love", "text": "i love you" },
 	  { "id": "f_home", "text": "tell him to wait for me" },
 	  { "id": "f_sorry", "text": "tell him i'm sorry. he'll know for what" },
-	  { "id": "f_hand", "text": "no words. just hold his hand the whole time and don't let go until i walk in. that one's from me, didi" }
+	  { "id": "f_hand", "text": "no words. just hold his hand the whole time and don't let go until i walk in. that one's from me, sis" }
 	],
 	"delivered_reply": [
 	  "Okay.",
@@ -331,6 +331,6 @@
 	],
 	"closing_delivered": "It sent.",
 	"closing_failed": "It didn't send.",
-	"closing_final": "didi was typing."
+	"closing_final": "sis was typing."
   }
 }
