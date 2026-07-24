@@ -27,13 +27,32 @@
 		"Aman.",
         "He was here Tuesday. Sat with Papa for an hour so I could go wash my face."
 	  ],
+	  "unlocks": ["a1_how", "a1_land", "a1_why", "a1_sorry"],
+	  "removes": ["a1_deflect"],
 	  "silence": [
 		{ "idle_time": 16, "text": "I'm not angry at him." },
 		{ "idle_time": 20, "text": "Someone should have told you. There. I said it.", "final": true }
 	  ]
 	},
 	{
-	  "id": "a1_how", "act": 1, "start": true,
+	  "id": "a1_deflect", "act": 1, "start": true,
+	  "text": "does it matter who. how is he",
+	  "reply": [
+		"It matters to me. But fine.",
+        "Not good. They moved him to the ICU around 11. His pressure keeps dropping and coming back."
+	  ],
+	  "unlocks": ["a1_awake", "a1_land", "a1_why", "a1_sorry"],
+	  "removes": ["a1_aman"]
+	},
+	{
+	  "id": "a1_battery", "act": 1, "start": true,
+	  "text": "my phone's at 4 and i have the wrong adapter. it's going to die",
+	  "reply": [
+        "Then don't spend it on me."
+	  ]
+	},
+	{
+	  "id": "a1_how", "act": 1, "start": false,
 	  "text": "how is he",
 	  "reply": [
 		"Not good.",
@@ -47,25 +66,27 @@
 	  "reply": [
 		"In and out. More out.",
         "He's sedated. It's easier when he's sedated. For him I mean."
-	  ]
+	  ],
+	  "unlocks": ["a1_ma"]
 	},
 	{
-	  "id": "a1_here", "act": 1, "start": true,
-	  "text": "i'm at the gate. boarding in 40 minutes",
+	  "id": "a1_ma", "act": 1, "start": false,
+	  "text": "where's ma",
 	  "reply": [
-		"Okay.",
-        "Good."
+		"Asleep in the family room. I put my shawl over her.",
+        "She won't lie down properly. Keeps her chappals on. Ready to run somewhere I suppose."
 	  ]
 	},
 	{
-	  "id": "a1_battery", "act": 1, "start": true,
-	  "text": "my phone's at 4 and i have the wrong adapter. it's going to die",
+	  "id": "a1_land", "act": 1, "start": false,
+	  "text": "i'm at the gate. i land at 9:10, straight to the hospital from there",
 	  "reply": [
-        "Then don't spend it on me."
+		"Montu will get you. Gate 2.",
+        "He still has the same car. You'll see it and feel like nothing changed. Then you'll get here."
 	  ]
 	},
 	{
-	  "id": "a1_why", "act": 1, "start": true,
+	  "id": "a1_why", "act": 1, "start": false,
 	  "text": "why didn't you tell me. any of you. i had to hear my own father is dying from aman",
 	  "reply": [
         "You changed the number."
@@ -77,23 +98,7 @@
 	  ]
 	},
 	{
-	  "id": "a1_ma", "act": 1, "start": true,
-	  "text": "where's ma",
-	  "reply": [
-		"Asleep in the family room. I put my shawl over her.",
-        "She won't lie down properly. Keeps her chappals on. Ready to run somewhere I suppose."
-	  ]
-	},
-	{
-	  "id": "a1_land", "act": 1, "start": true,
-	  "text": "i land at 9:10. straight to the hospital from there",
-	  "reply": [
-		"Montu will get you. Gate 2.",
-        "He still has the same car. You'll see it and feel like nothing changed. Then you'll get here."
-	  ]
-	},
-	{
-	  "id": "a1_sorry", "act": 1, "start": true,
+	  "id": "a1_sorry", "act": 1, "start": false,
 	  "text": "i'm sorry",
 	  "reply": [
         "For which part."
@@ -107,18 +112,10 @@
 		"Three days ago they asked us whether to keep going with the full treatment. All of it.",
         "I said no. I decided on the stairwell outside radiology. I had about four minutes and a paper cup of chai."
 	  ],
-	  "unlocks": ["a2_right", "a2_alone"],
+	  "unlocks": ["a2_alone", "a2_how_long"],
 	  "silence": [
 		{ "idle_time": 20, "text": "You went quiet." },
 		{ "idle_time": 24, "text": "Good. It deserves a bit of quiet.", "final": true }
-	  ]
-	},
-	{
-	  "id": "a2_right", "act": 2, "start": false,
-	  "text": "you made the right call didi",
-	  "reply": [
-		"I didn't need it to be right.",
-        "I needed to not be the only one in the stairwell. That's all I needed."
 	  ]
 	},
 	{
@@ -126,8 +123,55 @@
 	  "text": "you shouldn't have had to decide that alone. i should have been in that stairwell with you",
 	  "reply": [
 		"Yes.",
-		"Well.",
+		"I didn't need the decision to be right. I needed to not be the only one in the stairwell.",
         "You're in an airport. It's a start."
+	  ]
+	},
+	{
+	  "id": "a2_how_long", "act": 2, "start": false,
+	  "text": "how long are they saying. honestly",
+	  "reply": [
+		"They stopped saying numbers on Tuesday.",
+        "It stopped being weeks a while ago. Tonight it stopped being days. So."
+	  ],
+	  "unlocks": ["a2_know_coming", "a2_video"]
+	},
+	{
+	  "id": "a2_know_coming", "act": 2, "start": false,
+	  "text": "does papa know i'm coming",
+	  "reply": [
+		"No.",
+        "I'll tell him when your plane is actually in the air. I've stopped giving him things that might not arrive."
+	  ],
+	  "unlocks": ["a3_in_air"]
+	},
+	{
+	  "id": "a2_video", "act": 2, "start": false,
+	  "text": "can you video call for one minute. i just want to see his face",
+	  "reply": [
+		"Your phone would die on the ringing screen.",
+        "And not like this. You'll see him with your own eyes in six hours. That's the version he'd want."
+	  ]
+	},
+	{
+	  "id": "a2_you_ok", "act": 2, "start": true,
+	  "text": "are you ok",
+	  "reply": [
+        "I'm fine."
+	  ],
+	  "unlocks": ["a2_eaten"],
+	  "silence": [
+		{ "idle_time": 16, "text": "No one's asked me that since February, actually." },
+		{ "idle_time": 20, "text": "Fine is the wrong word. Upright. I'm upright and I know where the good bathroom is to cry in." },
+		{ "idle_time": 26, "text": "Sixth floor, past the chemist. For your information. For tomorrow.", "final": true }
+	  ]
+	},
+	{
+	  "id": "a2_eaten", "act": 2, "start": false,
+	  "text": "have you eaten anything",
+	  "reply": [
+		"There's a machine downstairs that makes something brown.",
+        "I've had four. Meena bua brought parathas at midnight but nobody could."
 	  ]
 	},
 	{
@@ -140,56 +184,47 @@
 	  "unlocks": ["a3_then_why"]
 	},
 	{
-	  "id": "a2_you_ok", "act": 2, "start": true,
-	  "text": "are you ok",
+	  "id": "a3_three_weeks", "act": 3, "start": true,
+	  "text": "aman told me three weeks ago. i've had the ticket open in a tab for three weeks. i couldn't press buy. i don't know what was wrong with me",
 	  "reply": [
-        "I'm fine."
+		"Three weeks.",
+		"You pressed it tonight.",
+        "That's the version I'm keeping. Don't argue with me about it."
 	  ],
-	  "silence": [
-		{ "idle_time": 16, "text": "No one's asked me that since February, actually." },
-		{ "idle_time": 20, "text": "Fine is the wrong word. Upright. I'm upright and I know where the good bathroom is to cry in." },
-		{ "idle_time": 26, "text": "Sixth floor, past the chemist. For your information. For tomorrow.", "final": true }
+	  "unlocks": ["a3_why_left"]
+	},
+	{
+	  "id": "a3_why_left", "act": 3, "start": false,
+	  "text": "i didn't leave to hurt anyone. staying was turning me into someone i didn't want you to meet",
+	  "reply": [
+		"I know.",
+        "I always knew. That was the part I couldn't explain to him."
 	  ]
 	},
 	{
-	  "id": "a2_eaten", "act": 2, "start": true,
-	  "text": "have you eaten anything",
+	  "id": "a3_scared", "act": 3, "start": true,
+	  "text": "i'm scared didi",
 	  "reply": [
-		"There's a machine downstairs that makes something brown.",
-        "I've had four. Meena bua brought parathas at midnight but nobody could."
-	  ]
-	},
-	{
-	  "id": "a2_know_coming", "act": 2, "start": true,
-	  "text": "does papa know i'm coming",
-	  "reply": [
-		"No.",
-        "I'll tell him when your plane is actually in the air. I've stopped giving him things that might not arrive."
+		"me too",
+        "First time anyone in this family has said that out loud, I think."
 	  ],
-	  "unlocks": ["a3_in_air"]
+	  "unlocks": ["a3_after"]
 	},
 	{
-	  "id": "a2_video", "act": 2, "start": true,
-	  "text": "can you video call for one minute. i just want to see his face",
+	  "id": "a3_after", "act": 3, "start": false,
+	  "text": "what happens to you after all this. have you thought about you at all",
 	  "reply": [
-		"Your phone would die on the ringing screen.",
-        "And not like this. You'll see him with your own eyes in six hours. That's the version he'd want."
-	  ]
+		"I don't let myself.",
+        "One corridor at a time."
+	  ],
+	  "unlocks": ["a3_stay"]
 	},
 	{
-	  "id": "a2_flight", "act": 2, "start": true,
-	  "text": "they're calling my boarding group",
+	  "id": "a3_stay", "act": 3, "start": false,
+	  "text": "i'm not disappearing again. whatever happens in the morning i'm staying. i mean it this time",
 	  "reply": [
-		"Go. Sit near the front.",
-        "Every minute matters on the other side."
-	  ]
-	},
-	{
-	  "id": "a2_how_long", "act": 2, "start": true,
-	  "text": "how long are they saying. honestly",
-	  "reply": [
-		"They stopped saying numbers on Tuesday.",
-        "It stopped being weeks a while ago. Tonight it stopped being days. So."
+		"We'll see.",
+        "I would like that to be a true sentence."
 	  ]
 	},
 	{
@@ -211,53 +246,12 @@
 	  "removes": ["a1_why"]
 	},
 	{
-	  "id": "a3_three_weeks", "act": 3, "start": true,
-	  "text": "aman told me three weeks ago. i've had the ticket open in a tab for three weeks. i couldn't press buy. i don't know what was wrong with me",
-	  "reply": [
-		"Three weeks.",
-		"You pressed it tonight.",
-        "That's the version I'm keeping. Don't argue with me about it."
-	  ]
-	},
-	{
-	  "id": "a3_why_left", "act": 3, "start": true,
-	  "text": "i didn't leave to hurt anyone. staying was turning me into someone i didn't want you to meet",
-	  "reply": [
-		"I know.",
-        "I always knew. That was the part I couldn't explain to him."
-	  ]
-	},
-	{
-	  "id": "a3_scared", "act": 3, "start": true,
-	  "text": "i'm scared didi",
-	  "reply": [
-		"me too",
-        "First time anyone in this family has said that out loud, I think."
-	  ]
-	},
-	{
 	  "id": "a3_in_air", "act": 3, "start": false,
 	  "text": "we take off in a few minutes. it's real now. you can tell him. please tell him",
 	  "reply": [
 		"Telling him now.",
 		"I'm holding his hand and saying it. His eyebrows moved.",
         "He heard me. He heard it."
-	  ]
-	},
-	{
-	  "id": "a3_after", "act": 3, "start": true,
-	  "text": "what happens to you after all this. have you thought about you at all",
-	  "reply": [
-		"I don't let myself.",
-        "One corridor at a time."
-	  ]
-	},
-	{
-	  "id": "a3_stay", "act": 3, "start": true,
-	  "text": "i'm not disappearing again. whatever happens in the morning i'm staying. i mean it this time",
-	  "reply": [
-		"We'll see.",
-        "I would like that to be a true sentence."
 	  ]
 	}
   ],
