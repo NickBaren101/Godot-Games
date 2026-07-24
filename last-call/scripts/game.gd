@@ -129,12 +129,16 @@ func _check_thresholds() -> void:
 func _advance_act(act: int) -> void:
 	current_act = act
 	convo.enter_act(act)
-	var trans: Array = convo.data.get("act_transitions", {}).get(str(act), [])
-	for m in trans:
-		_transcript.add_incoming(String(m.get("text", "")))
+	var texts: Array = []
+	for m in convo.data.get("act_transitions", {}).get(str(act), []):
+		texts.append(String(m.get("text", "")))
+	_clear_options()
+	await _run_reply(texts)            # play them one at a time, with typing indicators
+	if finale_started:
+		return
 	_reset_silence([])                # transitions use the generic fallback; new act may add waits
-	if state == State.IDLE:
-		_refresh_options()
+	state = State.IDLE
+	_refresh_options()
 
 
 # --- Opening --------------------------------------------------------------
