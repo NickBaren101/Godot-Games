@@ -21,13 +21,20 @@
   },
   "options": [
 	{
+	  "id": "a1_battery", "act": 1, "start": true,
+	  "text": "my phone's at 4 and i have the wrong adapter. it's going to die",
+	  "reply": [
+        "Then don't spend it on me."
+	  ]
+	},
+	{
 	  "id": "a1_aman", "act": 1, "start": true,
 	  "text": "aman told me. he saw you at the hospital last week",
 	  "reply": [
 		"Aman.",
         "He was here Tuesday. Sat with Papa for an hour so I could go wash my face."
 	  ],
-	  "unlocks": ["a1_how", "a1_land", "a1_why", "a1_sorry"],
+	  "unlocks": ["a1_how", "a1_why"],
 	  "removes": ["a1_deflect"],
 	  "silence": [
 		{ "idle_time": 16, "text": "I'm not angry at him." },
@@ -41,15 +48,8 @@
 		"It matters to me. But fine.",
         "Not good. They moved him to the ICU around 11. His pressure keeps dropping and coming back."
 	  ],
-	  "unlocks": ["a1_awake", "a1_land", "a1_why", "a1_sorry"],
+	  "unlocks": ["a1_awake"],
 	  "removes": ["a1_aman"]
-	},
-	{
-	  "id": "a1_battery", "act": 1, "start": true,
-	  "text": "my phone's at 4 and i have the wrong adapter. it's going to die",
-	  "reply": [
-        "Then don't spend it on me."
-	  ]
 	},
 	{
 	  "id": "a1_how", "act": 1, "start": false,
@@ -67,7 +67,7 @@
 		"In and out. More out.",
         "He's sedated. It's easier when he's sedated. For him I mean."
 	  ],
-	  "unlocks": ["a1_ma"]
+	  "unlocks": ["a1_ma", "a1_land"]
 	},
 	{
 	  "id": "a1_ma", "act": 1, "start": false,
@@ -91,7 +91,7 @@
 	  "reply": [
         "You changed the number."
 	  ],
-	  "unlocks": ["a2_knowing"],
+	  "unlocks": ["a1_sorry", "a2_knowing"],
 	  "silence": [
 		{ "idle_time": 18, "text": "I tried the old one anyway. In March." },
 		{ "idle_time": 22, "text": "A man in Noida answered. He was nice about it. Said people call for you sometimes.", "final": true }
@@ -113,6 +113,7 @@
         "I said no. I decided on the stairwell outside radiology. I had about four minutes and a paper cup of chai."
 	  ],
 	  "unlocks": ["a2_alone", "a2_how_long"],
+	  "removes": ["a1_battery", "a1_aman", "a1_deflect", "a1_how", "a1_awake", "a1_ma", "a1_land", "a1_why", "a1_sorry"],
 	  "silence": [
 		{ "idle_time": 20, "text": "You went quiet." },
 		{ "idle_time": 24, "text": "Good. It deserves a bit of quiet.", "final": true }
@@ -125,7 +126,8 @@
 		"Yes.",
 		"I didn't need the decision to be right. I needed to not be the only one in the stairwell.",
         "You're in an airport. It's a start."
-	  ]
+	  ],
+	  "unlocks": ["a2_you_ok"]
 	},
 	{
 	  "id": "a2_how_long", "act": 2, "start": false,
@@ -149,12 +151,12 @@
 	  "id": "a2_video", "act": 2, "start": false,
 	  "text": "can you video call for one minute. i just want to see his face",
 	  "reply": [
-		"Your phone would die on the ringing screen.",
+		"The signal in here is one bar on a good day.",
         "And not like this. You'll see him with your own eyes in six hours. That's the version he'd want."
 	  ]
 	},
 	{
-	  "id": "a2_you_ok", "act": 2, "start": true,
+	  "id": "a2_you_ok", "act": 2, "start": false,
 	  "text": "are you ok",
 	  "reply": [
         "I'm fine."
@@ -191,15 +193,8 @@
 		"You pressed it tonight.",
         "That's the version I'm keeping. Don't argue with me about it."
 	  ],
-	  "unlocks": ["a3_why_left"]
-	},
-	{
-	  "id": "a3_why_left", "act": 3, "start": false,
-	  "text": "i didn't leave to hurt anyone. staying was turning me into someone i didn't want you to meet",
-	  "reply": [
-		"I know.",
-        "I always knew. That was the part I couldn't explain to him."
-	  ]
+	  "unlocks": ["a3_why_left"],
+	  "removes": ["a1_battery", "a1_aman", "a1_deflect", "a1_how", "a1_awake", "a1_ma", "a1_land", "a1_why", "a1_sorry", "a2_doctor", "a2_alone", "a2_how_long", "a2_know_coming", "a2_video", "a2_you_ok", "a2_eaten", "a2_knowing"]
 	},
 	{
 	  "id": "a3_scared", "act": 3, "start": true,
@@ -208,7 +203,16 @@
 		"me too",
         "First time anyone in this family has said that out loud, I think."
 	  ],
-	  "unlocks": ["a3_after"]
+	  "unlocks": ["a3_after"],
+	  "removes": ["a1_battery", "a1_aman", "a1_deflect", "a1_how", "a1_awake", "a1_ma", "a1_land", "a1_why", "a1_sorry", "a2_doctor", "a2_alone", "a2_how_long", "a2_know_coming", "a2_video", "a2_you_ok", "a2_eaten", "a2_knowing"]
+	},
+	{
+	  "id": "a3_why_left", "act": 3, "start": false,
+	  "text": "i didn't leave to hurt anyone. staying was turning me into someone i didn't want you to meet",
+	  "reply": [
+		"I know.",
+        "I always knew. That was the part I couldn't explain to him."
+	  ]
 	},
 	{
 	  "id": "a3_after", "act": 3, "start": false,
@@ -242,8 +246,7 @@
 	  "reply": [
 		"Thank you.",
         "That's all I wanted. The list. Someone else holding the list for a minute."
-	  ],
-	  "removes": ["a1_why"]
+	  ]
 	},
 	{
 	  "id": "a3_in_air", "act": 3, "start": false,
@@ -261,7 +264,7 @@
 	{ "act": 2, "text": "The corridor smells like phenyl and someone's marigolds. There's a puja going in the next ward." },
 	{ "act": 2, "text": "He checks the weather where you are. Every night after the news. He knew it rained on you yesterday." },
 	{ "act": 3, "text": "His hand keeps doing the two finger tap. Like he's checking the shop shutter one more time." },
-	{ "act": 3, "text": "Don't save the battery. Whatever you're saving it for, this is the thing it was for." }
+	{ "act": 3, "text": "If you're rationing that phone, stop. This is the thing you were saving it for." }
   ],
   "finale": {
 	"messages": [
@@ -270,9 +273,9 @@
 	],
 	"options": [
 	  { "id": "f_love", "text": "i love you" },
-	  { "id": "f_home", "text": "tell him i'm coming home" },
+	  { "id": "f_home", "text": "tell him to wait for me" },
 	  { "id": "f_sorry", "text": "tell him i'm sorry. he'll know for what" },
-	  { "id": "f_hand", "text": "don't tell him anything. just hold his hand and don't let go until i'm there. that one's from me" }
+	  { "id": "f_hand", "text": "no words. just hold his hand the whole time and don't let go until i walk in. that one's from me, didi" }
 	],
 	"delivered_reply": [
 	  "Okay.",
