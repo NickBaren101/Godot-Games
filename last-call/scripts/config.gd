@@ -6,7 +6,7 @@ const DIALOGUE_PATH := "res://data/dialogue.json"
 
 # --- Battery / economy (see GDD §3) --------------------------------------
 const START_BATTERY := 4.00        # starting charge, float
-const COST_PER_CHAR := 0.005       # send cost = max(0.02, len(text) * COST_PER_CHAR)
+const COST_PER_CHAR := 0.00445     # send cost = max(0.02, len(text) * COST_PER_CHAR)
 const MIN_SEND_COST := 0.02
 const IDLE_DRAIN := 0.003          # percent per second, idle or waiting
 const RECEIVE_DRAIN := 0.003       # percent per second during the typing indicator
