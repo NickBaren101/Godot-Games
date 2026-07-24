@@ -2,297 +2,290 @@
   "contact_name": "didi",
   "unsaid_header": "Things you didn't say",
   "opening": [
-    { "text": "You're at the airport.", "delay": 0.8 },
-    { "text": "Who told you.", "delay": 2.2 }
+	{ "text": "You're at the airport.", "delay": 0.8 },
+	{ "text": "Who told you.", "delay": 2.2 }
   ],
   "opening_silence": [
-    { "idle_time": 18, "text": "Are you there." },
-    { "idle_time": 22, "text": "Don't do this again. Not tonight." }
+	{ "idle_time": 18, "text": "Are you there." },
+	{ "idle_time": 22, "text": "Don't do this again. Not tonight." }
   ],
   "act_transitions": {
-    "2": [
-      { "text": "The doctor came again. Third time tonight. That's not a good number." },
-      { "text": "He asked if the family was all here. I said almost." }
-    ],
-    "3": [
-      { "text": "They're letting me sit next to him now." },
-      { "text": "His breathing sounds like waves. The nurse said that's normal. Normal." }
-    ]
+	"2": [
+	  { "text": "The doctor came again. Third time tonight. That's not a good number." },
+	  { "text": "He asked if the family was all here. I said almost." }
+	],
+	"3": [
+	  { "text": "They're letting me sit next to him now." },
+	  { "text": "His breathing sounds like waves. The nurse said that's normal. Normal." }
+	]
   },
   "options": [
-    {
-      "id": "a1_aman", "act": 1, "start": true,
-      "text": "aman told me. he saw you at the hospital last week",
-      "reply": [
-        "Aman.",
+	{
+	  "id": "a1_aman", "act": 1, "start": true,
+	  "text": "aman told me. he saw you at the hospital last week",
+	  "reply": [
+		"Aman.",
         "He was here Tuesday. Sat with Papa for an hour so I could go wash my face."
-      ],
-      "silence": [
-        { "idle_time": 16, "text": "I'm not angry at him." },
-        { "idle_time": 20, "text": "Someone should have told you. There. I said it.", "final": true }
-      ]
-    },
-    {
-      "id": "a1_how", "act": 1, "start": true,
-      "text": "how is he",
-      "reply": [
-        "Not good.",
+	  ],
+	  "silence": [
+		{ "idle_time": 16, "text": "I'm not angry at him." },
+		{ "idle_time": 20, "text": "Someone should have told you. There. I said it.", "final": true }
+	  ]
+	},
+	{
+	  "id": "a1_how", "act": 1, "start": true,
+	  "text": "how is he",
+	  "reply": [
+		"Not good.",
         "They moved him to the ICU around 11. His pressure keeps dropping and coming back."
-      ],
-      "unlocks": ["a1_awake"]
-    },
-    {
-      "id": "a1_awake", "act": 1, "start": false,
-      "text": "is he awake",
-      "reply": [
-        "In and out. More out.",
+	  ],
+	  "unlocks": ["a1_awake"]
+	},
+	{
+	  "id": "a1_awake", "act": 1, "start": false,
+	  "text": "is he awake",
+	  "reply": [
+		"In and out. More out.",
         "He's sedated. It's easier when he's sedated. For him I mean."
-      ]
-    },
-    {
-      "id": "a1_here", "act": 1, "start": true,
-      "text": "i'm at the gate. boarding in 40 minutes",
-      "reply": [
-        "Okay.",
+	  ]
+	},
+	{
+	  "id": "a1_here", "act": 1, "start": true,
+	  "text": "i'm at the gate. boarding in 40 minutes",
+	  "reply": [
+		"Okay.",
         "Good."
-      ]
-    },
-    {
-      "id": "a1_battery", "act": 1, "start": true,
-      "text": "my phone's at 4 and i have the wrong adapter. it's going to die",
-      "reply": [
+	  ]
+	},
+	{
+	  "id": "a1_battery", "act": 1, "start": true,
+	  "text": "my phone's at 4 and i have the wrong adapter. it's going to die",
+	  "reply": [
         "Then don't spend it on me."
-      ]
-    },
-    {
-      "id": "a1_why", "act": 1, "start": true,
-      "text": "why didn't you tell me. any of you. i had to hear my own father is dying from aman",
-      "reply": [
+	  ]
+	},
+	{
+	  "id": "a1_why", "act": 1, "start": true,
+	  "text": "why didn't you tell me. any of you. i had to hear my own father is dying from aman",
+	  "reply": [
         "You changed the number."
-      ],
-      "unlocks": ["a2_knowing"],
-      "silence": [
-        { "idle_time": 18, "text": "I tried the old one anyway. In March." },
-        { "idle_time": 22, "text": "A man in Noida answered. He was nice about it. Said people call for you sometimes.", "final": true }
-      ]
-    },
-    {
-      "id": "a1_ma", "act": 1, "start": true,
-      "text": "where's ma",
-      "reply": [
-        "Asleep in the family room. I put my shawl over her.",
+	  ],
+	  "unlocks": ["a2_knowing"],
+	  "silence": [
+		{ "idle_time": 18, "text": "I tried the old one anyway. In March." },
+		{ "idle_time": 22, "text": "A man in Noida answered. He was nice about it. Said people call for you sometimes.", "final": true }
+	  ]
+	},
+	{
+	  "id": "a1_ma", "act": 1, "start": true,
+	  "text": "where's ma",
+	  "reply": [
+		"Asleep in the family room. I put my shawl over her.",
         "She won't lie down properly. Keeps her chappals on. Ready to run somewhere I suppose."
-      ]
-    },
-    {
-      "id": "a1_land", "act": 1, "start": true,
-      "text": "i land at 9:10. straight to the hospital from there",
-      "reply": [
-        "Montu will get you. Gate 2.",
+	  ]
+	},
+	{
+	  "id": "a1_land", "act": 1, "start": true,
+	  "text": "i land at 9:10. straight to the hospital from there",
+	  "reply": [
+		"Montu will get you. Gate 2.",
         "He still has the same car. You'll see it and feel like nothing changed. Then you'll get here."
-      ]
-    },
-    {
-      "id": "a1_sorry", "act": 1, "start": true,
-      "text": "i'm sorry",
-      "reply": [
+	  ]
+	},
+	{
+	  "id": "a1_sorry", "act": 1, "start": true,
+	  "text": "i'm sorry",
+	  "reply": [
         "For which part."
-      ],
-      "unlocks": ["a3_which_part"]
-    },
-    {
-      "id": "a1_ok", "act": 1, "start": true, "persistent": true,
-      "text": "ok",
-      "reply": [
-        "Ok."
-      ]
-    },
-    {
-      "id": "a2_doctor", "act": 2, "start": true,
-      "text": "what did the doctor actually say. tell me straight",
-      "reply": [
-        "Three days ago they asked us whether to keep going with the full treatment. All of it.",
+	  ],
+	  "unlocks": ["a3_which_part"]
+	},
+	{
+	  "id": "a2_doctor", "act": 2, "start": true,
+	  "text": "what did the doctor actually say. tell me straight",
+	  "reply": [
+		"Three days ago they asked us whether to keep going with the full treatment. All of it.",
         "I said no. I decided on the stairwell outside radiology. I had about four minutes and a paper cup of chai."
-      ],
-      "unlocks": ["a2_right", "a2_alone"],
-      "silence": [
-        { "idle_time": 20, "text": "You went quiet." },
-        { "idle_time": 24, "text": "Good. It deserves a bit of quiet.", "final": true }
-      ]
-    },
-    {
-      "id": "a2_right", "act": 2, "start": false,
-      "text": "you made the right call didi",
-      "reply": [
-        "I didn't need it to be right.",
+	  ],
+	  "unlocks": ["a2_right", "a2_alone"],
+	  "silence": [
+		{ "idle_time": 20, "text": "You went quiet." },
+		{ "idle_time": 24, "text": "Good. It deserves a bit of quiet.", "final": true }
+	  ]
+	},
+	{
+	  "id": "a2_right", "act": 2, "start": false,
+	  "text": "you made the right call didi",
+	  "reply": [
+		"I didn't need it to be right.",
         "I needed to not be the only one in the stairwell. That's all I needed."
-      ]
-    },
-    {
-      "id": "a2_alone", "act": 2, "start": false,
-      "text": "you shouldn't have had to decide that alone. i should have been in that stairwell with you",
-      "reply": [
-        "Yes.",
-        "Well.",
+	  ]
+	},
+	{
+	  "id": "a2_alone", "act": 2, "start": false,
+	  "text": "you shouldn't have had to decide that alone. i should have been in that stairwell with you",
+	  "reply": [
+		"Yes.",
+		"Well.",
         "You're in an airport. It's a start."
-      ]
-    },
-    {
-      "id": "a2_knowing", "act": 2, "start": false,
-      "text": "you knew where i live. aman knows. you could have reached me any time you wanted",
-      "reply": [
-        "I know your building. I know the flat number. I know your Sunday market.",
+	  ]
+	},
+	{
+	  "id": "a2_knowing", "act": 2, "start": false,
+	  "text": "you knew where i live. aman knows. you could have reached me any time you wanted",
+	  "reply": [
+		"I know your building. I know the flat number. I know your Sunday market.",
         "Knowing was never the problem."
-      ],
-      "unlocks": ["a3_then_why"]
-    },
-    {
-      "id": "a2_you_ok", "act": 2, "start": true,
-      "text": "are you ok",
-      "reply": [
+	  ],
+	  "unlocks": ["a3_then_why"]
+	},
+	{
+	  "id": "a2_you_ok", "act": 2, "start": true,
+	  "text": "are you ok",
+	  "reply": [
         "I'm fine."
-      ],
-      "silence": [
-        { "idle_time": 16, "text": "No one's asked me that since February, actually." },
-        { "idle_time": 20, "text": "Fine is the wrong word. Upright. I'm upright and I know where the good bathroom is to cry in." },
-        { "idle_time": 26, "text": "Sixth floor, past the chemist. For your information. For tomorrow.", "final": true }
-      ]
-    },
-    {
-      "id": "a2_eaten", "act": 2, "start": true,
-      "text": "have you eaten anything",
-      "reply": [
-        "There's a machine downstairs that makes something brown.",
+	  ],
+	  "silence": [
+		{ "idle_time": 16, "text": "No one's asked me that since February, actually." },
+		{ "idle_time": 20, "text": "Fine is the wrong word. Upright. I'm upright and I know where the good bathroom is to cry in." },
+		{ "idle_time": 26, "text": "Sixth floor, past the chemist. For your information. For tomorrow.", "final": true }
+	  ]
+	},
+	{
+	  "id": "a2_eaten", "act": 2, "start": true,
+	  "text": "have you eaten anything",
+	  "reply": [
+		"There's a machine downstairs that makes something brown.",
         "I've had four. Meena bua brought parathas at midnight but nobody could."
-      ]
-    },
-    {
-      "id": "a2_know_coming", "act": 2, "start": true,
-      "text": "does papa know i'm coming",
-      "reply": [
-        "No.",
+	  ]
+	},
+	{
+	  "id": "a2_know_coming", "act": 2, "start": true,
+	  "text": "does papa know i'm coming",
+	  "reply": [
+		"No.",
         "I'll tell him when your plane is actually in the air. I've stopped giving him things that might not arrive."
-      ],
-      "unlocks": ["a3_in_air"]
-    },
-    {
-      "id": "a2_video", "act": 2, "start": true,
-      "text": "can you video call for one minute. i just want to see his face",
-      "reply": [
-        "Your phone would die on the ringing screen.",
+	  ],
+	  "unlocks": ["a3_in_air"]
+	},
+	{
+	  "id": "a2_video", "act": 2, "start": true,
+	  "text": "can you video call for one minute. i just want to see his face",
+	  "reply": [
+		"Your phone would die on the ringing screen.",
         "And not like this. You'll see him with your own eyes in six hours. That's the version he'd want."
-      ]
-    },
-    {
-      "id": "a2_flight", "act": 2, "start": true,
-      "text": "they're calling my boarding group",
-      "reply": [
-        "Go. Sit near the front.",
+	  ]
+	},
+	{
+	  "id": "a2_flight", "act": 2, "start": true,
+	  "text": "they're calling my boarding group",
+	  "reply": [
+		"Go. Sit near the front.",
         "Every minute matters on the other side."
-      ]
-    },
-    {
-      "id": "a2_how_long", "act": 2, "start": true,
-      "text": "how long are they saying. honestly",
-      "reply": [
-        "They stopped saying numbers on Tuesday.",
+	  ]
+	},
+	{
+	  "id": "a2_how_long", "act": 2, "start": true,
+	  "text": "how long are they saying. honestly",
+	  "reply": [
+		"They stopped saying numbers on Tuesday.",
         "It stopped being weeks a while ago. Tonight it stopped being days. So."
-      ]
-    },
-    {
-      "id": "a3_then_why", "act": 3, "start": false,
-      "text": "then why",
-      "reply": [
-        "Papa told us not to.",
-        "He said if you wanted to know us, you knew the number.",
+	  ]
+	},
+	{
+	  "id": "a3_then_why", "act": 3, "start": false,
+	  "text": "then why",
+	  "reply": [
+		"Papa told us not to.",
+		"He said if you wanted to know us, you knew the number.",
         "I told him it was cruel. He said so was leaving."
-      ]
-    },
-    {
-      "id": "a3_which_part", "act": 3, "start": false,
-      "text": "for leaving the way i left. for the number. for making aman do this family's job for three years",
-      "reply": [
-        "Thank you.",
+	  ]
+	},
+	{
+	  "id": "a3_which_part", "act": 3, "start": false,
+	  "text": "for leaving the way i left. for the number. for making aman do this family's job for three years",
+	  "reply": [
+		"Thank you.",
         "That's all I wanted. The list. Someone else holding the list for a minute."
-      ],
-      "removes": ["a1_why"]
-    },
-    {
-      "id": "a3_three_weeks", "act": 3, "start": true,
-      "text": "aman told me three weeks ago. i've had the ticket open in a tab for three weeks. i couldn't press buy. i don't know what was wrong with me",
-      "reply": [
-        "Three weeks.",
-        "You pressed it tonight.",
+	  ],
+	  "removes": ["a1_why"]
+	},
+	{
+	  "id": "a3_three_weeks", "act": 3, "start": true,
+	  "text": "aman told me three weeks ago. i've had the ticket open in a tab for three weeks. i couldn't press buy. i don't know what was wrong with me",
+	  "reply": [
+		"Three weeks.",
+		"You pressed it tonight.",
         "That's the version I'm keeping. Don't argue with me about it."
-      ]
-    },
-    {
-      "id": "a3_why_left", "act": 3, "start": true,
-      "text": "i didn't leave to hurt anyone. staying was turning me into someone i didn't want you to meet",
-      "reply": [
-        "I know.",
+	  ]
+	},
+	{
+	  "id": "a3_why_left", "act": 3, "start": true,
+	  "text": "i didn't leave to hurt anyone. staying was turning me into someone i didn't want you to meet",
+	  "reply": [
+		"I know.",
         "I always knew. That was the part I couldn't explain to him."
-      ]
-    },
-    {
-      "id": "a3_scared", "act": 3, "start": true,
-      "text": "i'm scared didi",
-      "reply": [
-        "me too",
+	  ]
+	},
+	{
+	  "id": "a3_scared", "act": 3, "start": true,
+	  "text": "i'm scared didi",
+	  "reply": [
+		"me too",
         "First time anyone in this family has said that out loud, I think."
-      ]
-    },
-    {
-      "id": "a3_in_air", "act": 3, "start": false,
-      "text": "we take off in a few minutes. it's real now. you can tell him. please tell him",
-      "reply": [
-        "Telling him now.",
-        "I'm holding his hand and saying it. His eyebrows moved.",
+	  ]
+	},
+	{
+	  "id": "a3_in_air", "act": 3, "start": false,
+	  "text": "we take off in a few minutes. it's real now. you can tell him. please tell him",
+	  "reply": [
+		"Telling him now.",
+		"I'm holding his hand and saying it. His eyebrows moved.",
         "He heard me. He heard it."
-      ]
-    },
-    {
-      "id": "a3_after", "act": 3, "start": true,
-      "text": "what happens to you after all this. have you thought about you at all",
-      "reply": [
-        "I don't let myself.",
+	  ]
+	},
+	{
+	  "id": "a3_after", "act": 3, "start": true,
+	  "text": "what happens to you after all this. have you thought about you at all",
+	  "reply": [
+		"I don't let myself.",
         "One corridor at a time."
-      ]
-    },
-    {
-      "id": "a3_stay", "act": 3, "start": true,
-      "text": "i'm not disappearing again. whatever happens in the morning i'm staying. i mean it this time",
-      "reply": [
-        "We'll see.",
+	  ]
+	},
+	{
+	  "id": "a3_stay", "act": 3, "start": true,
+	  "text": "i'm not disappearing again. whatever happens in the morning i'm staying. i mean it this time",
+	  "reply": [
+		"We'll see.",
         "I would like that to be a true sentence."
-      ]
-    }
+	  ]
+	}
   ],
   "waits": [
-    { "act": 1, "text": "Still there." },
-    { "act": 1, "text": "I can see your dots starting and stopping. Type the thing." },
-    { "act": 2, "text": "The corridor smells like phenyl and someone's marigolds. There's a puja going in the next ward." },
-    { "act": 2, "text": "He checks the weather where you are. Every night after the news. He knew it rained on you yesterday." },
-    { "act": 3, "text": "His hand keeps doing the two finger tap. Like he's checking the shop shutter one more time." },
-    { "act": 3, "text": "Don't save the battery. Whatever you're saving it for, this is the thing it was for." }
+	{ "act": 1, "text": "Still there." },
+	{ "act": 1, "text": "I can see your dots starting and stopping. Type the thing." },
+	{ "act": 2, "text": "The corridor smells like phenyl and someone's marigolds. There's a puja going in the next ward." },
+	{ "act": 2, "text": "He checks the weather where you are. Every night after the news. He knew it rained on you yesterday." },
+	{ "act": 3, "text": "His hand keeps doing the two finger tap. Like he's checking the shop shutter one more time." },
+	{ "act": 3, "text": "Don't save the battery. Whatever you're saving it for, this is the thing it was for." }
   ],
   "finale": {
-    "messages": [
-      "He's surfacing. The nurse says a few minutes, maybe.",
+	"messages": [
+	  "He's surfacing. The nurse says a few minutes, maybe.",
       "I'm going in. Give me one thing to carry. Quick."
-    ],
-    "options": [
-      { "id": "f_love", "text": "i love you" },
-      { "id": "f_home", "text": "tell him i'm coming home" },
-      { "id": "f_sorry", "text": "tell him i'm sorry. he'll know for what" },
-      { "id": "f_hand", "text": "don't tell him anything. just hold his hand and don't let go until i'm there. that one's from me" }
-    ],
-    "delivered_reply": [
-      "Okay.",
+	],
+	"options": [
+	  { "id": "f_love", "text": "i love you" },
+	  { "id": "f_home", "text": "tell him i'm coming home" },
+	  { "id": "f_sorry", "text": "tell him i'm sorry. he'll know for what" },
+	  { "id": "f_hand", "text": "don't tell him anything. just hold his hand and don't let go until i'm there. that one's from me" }
+	],
+	"delivered_reply": [
+	  "Okay.",
       "He heard. His eyes are open. He's trying to say something back, wait, he wants me to type it exactly, he's saying"
-    ],
-    "closing_delivered": "It sent.",
-    "closing_failed": "It didn't send.",
-    "closing_final": "didi was typing."
+	],
+	"closing_delivered": "It sent.",
+	"closing_failed": "It didn't send.",
+	"closing_final": "didi was typing."
   }
 }
