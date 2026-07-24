@@ -14,8 +14,6 @@ const LOW_POWER_DRAIN := 0.0015    # replaces IDLE_DRAIN once below 1.00
 const TYPING_MIN := 1.2            # seconds, minimum typing indicator duration
 const TYPING_MAX := 4.0            # seconds, maximum
 const TYPING_PER_CHAR := 0.05      # seconds per character of the incoming reply
-const FAIL_THRESHOLD := 0.6        # below this battery, sends can fail
-const FAIL_CHANCE := 0.35          # probability a send fails below the threshold
 
 # --- Low power mode ------------------------------------------------------
 const LOW_POWER_AT := 1.00         # float at/below which low power engages

@@ -14,7 +14,6 @@ var finale_started := false
 var _halted := false
 
 var convo: Conversation
-var _rng := RandomNumberGenerator.new()
 
 # Silence / passive waiting
 var _idle_time := 0.0
@@ -36,7 +35,6 @@ var _opt_offset := 0
 
 
 func _ready() -> void:
-	_rng.randomize()
 	_style_phone()
 
 	convo = Conversation.new()
@@ -197,19 +195,11 @@ func _on_option_chosen(id: String) -> void:
 	var opt: Dictionary = convo.send(id)
 	var text: String = String(opt.get("text", ""))
 	var cost: float = Config.send_cost(text)
-	var failed: bool = battery < Config.FAIL_THRESHOLD and _rng.randf() < Config.FAIL_CHANCE
 	battery = maxf(battery - cost, 0.0)
 	Audio.send()
 	_clear_options()
-	_transcript.add_outgoing(text, failed)
+	_transcript.add_outgoing(text)
 	_update_battery_display()
-
-	if failed:
-		Audio.send_fail()
-		if not finale_started:
-			state = State.IDLE
-			_refresh_options()
-		return
 
 	await _run_reply(opt.get("reply", []))
 	if finale_started:
