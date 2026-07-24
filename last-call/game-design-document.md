@@ -69,8 +69,6 @@ All in a single `Config` autoload as constants, tunable in one place.
 | `TYPING_MIN` | `1.2` | Seconds, minimum typing indicator duration |
 | `TYPING_MAX` | `4.0` | Seconds, maximum |
 | `TYPING_PER_CHAR` | `0.05` | Seconds per character of the incoming reply |
-| `FAIL_THRESHOLD` | `0.6` | Below this, sends can fail |
-| `FAIL_CHANCE` | `0.35` | Probability a send fails below the threshold |
 
 Typing duration: `clamp(len(reply) * TYPING_PER_CHAR, TYPING_MIN, TYPING_MAX)`.
 
@@ -84,8 +82,10 @@ raise `START_BATTERY`.
 **Low power mode.** Below `1.00`, drain halves to `LOW_POWER_DRAIN`, the phone surface dims to
 80% brightness, and `TYPING_MIN` rises to `2.0`. Realistic, and it buys the finale room.
 
-**Failed sends still cost battery.** The message appears with a "not delivered" marker, no
-reply arrives, and the option is consumed. Deliberate. Do not add a retry.
+**No random failures.** Ordinary sends always deliver — the game has no dice rolls. The only
+undelivered message is at the finale, and it is *deterministic*: if the final message you choose
+costs more battery than remains, it can't send (the phone dies mid-send), appearing with a "not
+delivered" marker. That is a consequence of the choice, not chance. Do not add a retry.
 
 ---
 
@@ -130,9 +130,11 @@ options[]
   unlocks[]   option ids added to the pool after this is sent
   removes[]   option ids deleted from the pool after this is sent
   persistent  optional bool — if true, the option is not consumed when sent
-  silence[]   optional { idle_time, text } — ordered follow-ups the contact sends if the
-              player stays silent after this option's reply; each fires after idle_time
-              seconds of silence, escalating in order (see §8)
+  silence[]   optional { idle_time, text, final? } — ordered follow-ups the contact sends
+              if the player stays silent after this option's reply; each fires after
+              idle_time seconds of silence, in order. A reply cancels the rest of the
+              chain (the contact is cut off). final:true on the last entry = go quiet
+              afterward instead of falling back to waits[] (see §8)
 waits[]         { act, text }          fallback lines pulled after a silence chain is spent; filter by act, never repeat
 finale
   messages[]          strings, pushed when the finale triggers
