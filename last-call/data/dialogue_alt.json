@@ -1,0 +1,85 @@
+{
+  "contact_name": "[ALT-CONTACT]",
+  "unsaid_header": "[ALT-HEADER] a differently shaped placeholder file",
+  "opening": [
+	{ "text": "[ALT-OPEN] single opening message this time", "delay": 1.0 }
+  ],
+  "act_transitions": {
+	"2": [
+	  { "text": "[ALT-T2] first act two line" },
+	  { "text": "[ALT-T2b] a second act two transition line" }
+	],
+	"3": [
+	  { "text": "[ALT-T3] act three line" }
+	]
+  },
+  "options": [
+	{
+	  "id": "m1", "act": 1, "start": true,
+	  "text": "[ALT m1] short",
+	  "reply": ["[ALT-REPLY m1] one bubble", "[ALT-REPLY m1b] two bubbles", "[ALT-REPLY m1c] three bubbles here"],
+	  "unlocks": ["m2"]
+	},
+	{
+	  "id": "m2", "act": 1, "start": false,
+	  "text": "[ALT m2] unlocked medium placeholder option in the first act here",
+	  "reply": ["[ALT-REPLY m2] placeholder"],
+	  "removes": ["m3"]
+	},
+	{
+	  "id": "m3", "act": 1, "start": true, "persistent": true,
+	  "text": "[ALT m3] persistent option that can also be removed by m2",
+	  "reply": ["[ALT-REPLY m3] placeholder"]
+	},
+	{
+	  "id": "m4", "act": 2, "start": true,
+	  "text": "[ALT m4] a long placeholder option for the second act that keeps going for cost",
+	  "reply": ["[ALT-REPLY m4] placeholder"],
+	  "silence": [
+		{ "idle_time": 18, "text": "[ALT-SILENCE m4-1] placeholder follow-up" },
+		{ "idle_time": 24, "text": "[ALT-SILENCE m4-2] placeholder second follow-up" }
+	  ]
+	},
+	{
+	  "id": "m5", "act": 2, "start": true,
+	  "text": "[ALT m5] medium placeholder option two",
+	  "reply": ["[ALT-REPLY m5] placeholder"]
+	},
+	{
+	  "id": "m6", "act": 3, "start": true,
+	  "text": "[ALT m6] short six",
+	  "reply": ["[ALT-REPLY m6] placeholder"]
+	},
+	{
+	  "id": "m7", "act": 3, "start": true,
+	  "text": "[ALT m7] a long placeholder option for the third act to round it out nicely here",
+	  "reply": ["[ALT-REPLY m7-1] placeholder", "[ALT-REPLY m7-2] placeholder second"]
+	}
+  ],
+  "waits": [
+	{ "act": 1, "text": "[ALT-WAIT a1] placeholder" },
+	{ "act": 2, "text": "[ALT-WAIT a2] placeholder" },
+	{ "act": 3, "text": "[ALT-WAIT a3] placeholder" }
+  ],
+  "finale": {
+	"messages": [
+	  "[ALT-FIN-1] finale message",
+	  "[ALT-FIN-2] finale message two",
+      "[ALT-FIN-3] finale message three"
+	],
+	"options": [
+	  { "id": "af1", "text": "[ALT-FIN-OPT-1] short" },
+	  { "id": "af2", "text": "[ALT-FIN-OPT-2] medium finale option" },
+	  { "id": "af3", "text": "[ALT-FIN-OPT-3] another placeholder finale option" },
+	  { "id": "af4", "text": "[ALT-FIN-OPT-4] a longer placeholder finale option that costs more here" }
+	],
+	"delivered_reply": [
+	  "[ALT-FIN-REPLY-1] placeholder",
+	  "[ALT-FIN-REPLY-2] placeholder",
+      "[ALT-FIN-REPLY-3] the last delivered reply which is truncated partway as the phone dies"
+	],
+	"closing_delivered": "[ALT-CLOSE-DELIVERED] placeholder",
+	"closing_failed": "[ALT-CLOSE-FAILED] placeholder",
+	"closing_final": "[ALT-CLOSE-FINAL] placeholder"
+  }
+}

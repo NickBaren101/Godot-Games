@@ -1,0 +1,55 @@
+{
+  "contact_name": "[BROKEN FIXTURE]",
+  "unsaid_header": "[HEADER]",
+  "opening": [
+	{ "text": "[OPEN] placeholder", "delay": 0.8 }
+  ],
+  "act_transitions": {
+	"2": [ { "text": "[T2] placeholder" } ],
+	"3": [ { "text": "[T3] placeholder" } ]
+  },
+  "options": [
+	{
+	  "id": "ok_start", "act": 1, "start": true,
+	  "text": "[OK] reachable start option",
+	  "reply": ["[REPLY] placeholder"],
+	  "unlocks": ["ghost_id"],
+	  "silence": [
+		{ "idle_time": "soon", "text": "[SILENCE] idle_time must be a number, not a string" }
+	  ]
+	},
+	{
+	  "id": "dup", "act": 2, "start": true,
+	  "text": "[DUP-1] first option using the duplicated id",
+	  "reply": ["[REPLY] placeholder"]
+	},
+	{
+	  "id": "dup", "act": 3, "start": true,
+	  "text": "[DUP-2] second option using the duplicated id",
+	  "reply": ["[REPLY] placeholder"]
+	},
+	{
+	  "id": "orphan", "act": 1, "start": false,
+	  "text": "[ORPHAN] never started and never unlocked by anyone",
+	  "reply": ["[REPLY] placeholder"]
+	}
+  ],
+  "waits": [
+	{ "act": 1, "text": "[WAIT a1] placeholder" },
+	{ "act": 2, "text": "[WAIT a2] placeholder" },
+	{ "act": 3, "text": "[WAIT a3] placeholder" }
+  ],
+  "finale": {
+	"messages": ["[FIN] placeholder"],
+	"options": [
+	  { "id": "f_1", "text": "[FIN-OPT-1]" },
+	  { "id": "f_2", "text": "[FIN-OPT-2]" },
+	  { "id": "f_3", "text": "[FIN-OPT-3]" },
+	  { "id": "f_4", "text": "[FIN-OPT-4]" }
+	],
+	"delivered_reply": ["[FIN-REPLY] placeholder cut off here"],
+	"closing_delivered": "[CLOSE-DELIVERED]",
+	"closing_failed": "[CLOSE-FAILED]",
+	"closing_final": "[CLOSE-FINAL]"
+  }
+}

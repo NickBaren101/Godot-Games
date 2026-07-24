@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://d1a6lyu1igtax"]
+
+[ext_resource type="Script" uid="uid://bb2wifjp2u8uu" path="res://scripts/game.gd" id="1_game"]
+[ext_resource type="Script" uid="uid://de1vg20nx13ig" path="res://scripts/transcript.gd" id="2_trans"]
+[ext_resource type="Script" uid="uid://c4q0edkswl74m" path="res://scripts/ending.gd" id="3_end"]
+
+[node name="Main" type="Control" unique_id=1024182713]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_game")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1747682650]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431, 0.086275, 0.101961, 1)
+
+[node name="Center" type="CenterContainer" parent="." unique_id=156720160]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Phone" type="PanelContainer" parent="Center" unique_id=300270829]
+custom_minimum_size = Vector2(420, 760)
+layout_mode = 2
+
+[node name="PhoneMargin" type="MarginContainer" parent="Center/Phone" unique_id=1626966119]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="Center/Phone/PhoneMargin" unique_id=525405734]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="Center/Phone/PhoneMargin/VBox" unique_id=1110345946]
+layout_mode = 2
+
+[node name="ContactName" type="Label" parent="Center/Phone/PhoneMargin/VBox/Header" unique_id=991970033]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "contact"
+
+[node name="BatteryLabel" type="Label" parent="Center/Phone/PhoneMargin/VBox/Header" unique_id=188527123]
+layout_mode = 2
+text = "4%"
+
+[node name="BatteryBar" type="ColorRect" parent="Center/Phone/PhoneMargin/VBox" unique_id=1401993553]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(0.14, 0.15, 0.17, 1)
+
+[node name="Fill" type="ColorRect" parent="Center/Phone/PhoneMargin/VBox/BatteryBar" unique_id=1827952555]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 4.0
+color = Color(0.752941, 0.478431, 0.368627, 1)
+
+[node name="Transcript" type="ScrollContainer" parent="Center/Phone/PhoneMargin/VBox" unique_id=716540562]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+script = ExtResource("2_trans")
+
+[node name="Messages" type="VBoxContainer" parent="Center/Phone/PhoneMargin/VBox/Transcript" unique_id=856130434]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="Options" type="VBoxContainer" parent="Center/Phone/PhoneMargin/VBox" unique_id=785272467]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Ending" type="Control" parent="." unique_id=1043594789]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_end")

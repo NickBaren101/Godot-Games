@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://thwnx7j1gt4n"]
+
+[ext_resource type="Script" uid="uid://d052rugc4y68f" path="res://scripts/bubble.gd" id="1_bub"]
+
+[node name="Bubble" type="PanelContainer" unique_id=1282401562]
+size_flags_horizontal = 0
+script = ExtResource("1_bub")
+
+[node name="Label" type="Label" parent="." unique_id=977679536]
+layout_mode = 2

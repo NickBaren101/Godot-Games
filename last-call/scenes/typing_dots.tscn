@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0lastcalltyp0"]
+
+[ext_resource type="Script" path="res://scripts/typing_dots.gd" id="1_typ"]
+
+[node name="TypingDots" type="PanelContainer"]
+size_flags_horizontal = 0
+script = ExtResource("1_typ")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Dot0" type="ColorRect" parent="HBox"]
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Dot1" type="ColorRect" parent="HBox"]
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Dot2" type="ColorRect" parent="HBox"]
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 2
+size_flags_vertical = 4

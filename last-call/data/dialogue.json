@@ -1,0 +1,137 @@
+{
+  "contact_name": "[CONTACT]",
+  "unsaid_header": "[HEADER] placeholder heading for the unsent list",
+  "opening": [
+	{ "text": "[OPEN-1] placeholder opening message one", "delay": 0.8 },
+	{ "text": "[OPEN-2] placeholder opening message two goes here", "delay": 1.6 }
+  ],
+  "opening_silence": [
+	{ "idle_time": 18, "text": "[OPEN-SILENCE-1] placeholder nudge after the opening goes unanswered" },
+	{ "idle_time": 22, "text": "[OPEN-SILENCE-2] placeholder second nudge if still silent" }
+  ],
+  "act_transitions": {
+	"2": [
+	  { "text": "[T2] placeholder act two transition message" }
+	],
+	"3": [
+	  { "text": "[T3] placeholder act three transition message here" }
+	]
+  },
+  "options": [
+	{
+	  "id": "a1_a", "act": 1, "start": true,
+	  "text": "[A1-a] short",
+	  "reply": ["[REPLY a1_a] placeholder reply line"],
+	  "unlocks": ["a1_c"]
+	},
+	{
+	  "id": "a1_b", "act": 1, "start": true,
+	  "text": "[A1-b] medium length placeholder option text here yeah",
+	  "reply": ["[REPLY a1_b-1] placeholder", "[REPLY a1_b-2] placeholder second bubble here"],
+	  "silence": [
+		{ "idle_time": 15, "text": "[SILENCE a1_b-1] placeholder single follow-up after silence" }
+	  ]
+	},
+	{
+	  "id": "a1_c", "act": 1, "start": false,
+	  "text": "[A1-c] unlocked long placeholder option text that runs on a while to exercise cost",
+	  "reply": ["[REPLY a1_c] placeholder reply for the unlocked option"]
+	},
+	{
+	  "id": "a1_d", "act": 1, "start": true,
+	  "text": "[A1-d] medium placeholder that removes another option",
+	  "reply": ["[REPLY a1_d] placeholder"],
+	  "removes": ["a1_e"]
+	},
+	{
+	  "id": "a1_e", "act": 1, "start": true,
+	  "text": "[A1-e] short two",
+	  "reply": ["[REPLY a1_e] placeholder"]
+	},
+	{
+	  "id": "a1_p", "act": 1, "start": true, "persistent": true,
+	  "text": "[A1-p] persistent short",
+	  "reply": ["[REPLY a1_p] placeholder persistent reply"]
+	},
+	{
+	  "id": "a2_a", "act": 2, "start": true,
+	  "text": "[A2-a] medium length placeholder option for the second act",
+	  "reply": ["[REPLY a2_a-1] placeholder", "[REPLY a2_a-2] placeholder", "[REPLY a2_a-3] third bubble"]
+	},
+	{
+	  "id": "a2_b", "act": 2, "start": true,
+	  "text": "[A2-b] long placeholder option text for act two that keeps going to raise its cost",
+	  "reply": ["[REPLY a2_b] placeholder reply"],
+	  "unlocks": ["a2_c"],
+	  "silence": [
+		{ "idle_time": 20, "text": "[SILENCE a2_b-1] placeholder first follow-up when the player says nothing" },
+		{ "idle_time": 25, "text": "[SILENCE a2_b-2] placeholder the contact starts to explain itself here" },
+		{ "idle_time": 30, "text": "[SILENCE a2_b-3] placeholder final escalating follow-up before the pool falls back" }
+	  ]
+	},
+	{
+	  "id": "a2_c", "act": 2, "start": false,
+	  "text": "[A2-c] unlocked medium placeholder option in act two",
+	  "reply": ["[REPLY a2_c] placeholder"]
+	},
+	{
+	  "id": "a2_d", "act": 2, "start": true,
+	  "text": "[A2-d] short",
+	  "reply": ["[REPLY a2_d] placeholder"]
+	},
+	{
+	  "id": "a3_a", "act": 3, "start": true,
+	  "text": "[A3-a] long placeholder option for the third act that runs on to exercise the cost",
+	  "reply": ["[REPLY a3_a-1] placeholder", "[REPLY a3_a-2] placeholder second"],
+	  "unlocks": ["a3_e"]
+	},
+	{
+	  "id": "a3_b", "act": 3, "start": true,
+	  "text": "[A3-b] medium placeholder option text act three",
+	  "reply": ["[REPLY a3_b] placeholder"]
+	},
+	{
+	  "id": "a3_c", "act": 3, "start": true,
+	  "text": "[A3-c] short three",
+	  "reply": ["[REPLY a3_c] placeholder"],
+	  "removes": ["a3_d"]
+	},
+	{
+	  "id": "a3_d", "act": 3, "start": true,
+	  "text": "[A3-d] medium placeholder option removed by a3_c",
+	  "reply": ["[REPLY a3_d] placeholder"]
+	},
+	{
+	  "id": "a3_e", "act": 3, "start": false,
+	  "text": "[A3-e] unlocked long placeholder option in act three to round out the pool nicely",
+	  "reply": ["[REPLY a3_e] placeholder"]
+	}
+  ],
+  "waits": [
+	{ "act": 1, "text": "[WAIT a1-1] placeholder unprompted line for act one" },
+	{ "act": 1, "text": "[WAIT a1-2] placeholder unprompted line" },
+	{ "act": 2, "text": "[WAIT a2-1] placeholder unprompted line for act two" },
+	{ "act": 2, "text": "[WAIT a2-2] placeholder unprompted line" },
+	{ "act": 3, "text": "[WAIT a3-1] placeholder unprompted line for act three" },
+	{ "act": 3, "text": "[WAIT a3-2] placeholder unprompted line" }
+  ],
+  "finale": {
+	"messages": [
+	  "[FIN-1] placeholder finale message one",
+      "[FIN-2] placeholder finale message two"
+	],
+	"options": [
+	  { "id": "f_1", "text": "[FIN-OPT-1] short" },
+	  { "id": "f_2", "text": "[FIN-OPT-2] medium placeholder finale option" },
+	  { "id": "f_3", "text": "[FIN-OPT-3] another medium placeholder finale option here" },
+	  { "id": "f_4", "text": "[FIN-OPT-4] long placeholder finale option text that runs on to cost more battery" }
+	],
+	"delivered_reply": [
+	  "[FIN-REPLY-1] placeholder delivered reply bubble",
+      "[FIN-REPLY-2] placeholder final delivered reply that gets cut off partway through as the phone finally dies here"
+	],
+	"closing_delivered": "[CLOSE-DELIVERED] placeholder closing line for the delivered path",
+	"closing_failed": "[CLOSE-FAILED] placeholder closing line for the failed path",
+	"closing_final": "[CLOSE-FINAL] placeholder final closing line"
+  }
+}
