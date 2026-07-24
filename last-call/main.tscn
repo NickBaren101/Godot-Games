@@ -30,58 +30,74 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Phone" type="PanelContainer" parent="Center" unique_id=300270829]
+[node name="Row" type="HBoxContainer" parent="Center" unique_id=200000001]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Phone" type="PanelContainer" parent="Center/Row" unique_id=300270829]
 custom_minimum_size = Vector2(420, 760)
 layout_mode = 2
 
-[node name="PhoneMargin" type="MarginContainer" parent="Center/Phone" unique_id=1626966119]
+[node name="PhoneMargin" type="MarginContainer" parent="Center/Row/Phone" unique_id=1626966119]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBox" type="VBoxContainer" parent="Center/Phone/PhoneMargin" unique_id=525405734]
+[node name="VBox" type="VBoxContainer" parent="Center/Row/Phone/PhoneMargin" unique_id=525405734]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Header" type="HBoxContainer" parent="Center/Phone/PhoneMargin/VBox" unique_id=1110345946]
+[node name="Header" type="HBoxContainer" parent="Center/Row/Phone/PhoneMargin/VBox" unique_id=1110345946]
 layout_mode = 2
 
-[node name="ContactName" type="Label" parent="Center/Phone/PhoneMargin/VBox/Header" unique_id=991970033]
+[node name="ContactName" type="Label" parent="Center/Row/Phone/PhoneMargin/VBox/Header" unique_id=991970033]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "contact"
 
-[node name="BatteryLabel" type="Label" parent="Center/Phone/PhoneMargin/VBox/Header" unique_id=188527123]
+[node name="BatteryLabel" type="Label" parent="Center/Row/Phone/PhoneMargin/VBox/Header" unique_id=188527123]
 layout_mode = 2
 text = "4%"
 
-[node name="BatteryBar" type="ColorRect" parent="Center/Phone/PhoneMargin/VBox" unique_id=1401993553]
+[node name="BatteryBar" type="ColorRect" parent="Center/Row/Phone/PhoneMargin/VBox" unique_id=1401993553]
 custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 color = Color(0.14, 0.15, 0.17, 1)
 
-[node name="Fill" type="ColorRect" parent="Center/Phone/PhoneMargin/VBox/BatteryBar" unique_id=1827952555]
+[node name="Fill" type="ColorRect" parent="Center/Row/Phone/PhoneMargin/VBox/BatteryBar" unique_id=1827952555]
 layout_mode = 0
 offset_right = 16.0
 offset_bottom = 4.0
 color = Color(0.752941, 0.478431, 0.368627, 1)
 
-[node name="Transcript" type="ScrollContainer" parent="Center/Phone/PhoneMargin/VBox" unique_id=716540562]
+[node name="Transcript" type="ScrollContainer" parent="Center/Row/Phone/PhoneMargin/VBox" unique_id=716540562]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 script = ExtResource("2_trans")
 
-[node name="Messages" type="VBoxContainer" parent="Center/Phone/PhoneMargin/VBox/Transcript" unique_id=856130434]
+[node name="Messages" type="VBoxContainer" parent="Center/Row/Phone/PhoneMargin/VBox/Transcript" unique_id=856130434]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 6
 
-[node name="Options" type="VBoxContainer" parent="Center/Phone/PhoneMargin/VBox" unique_id=785272467]
+[node name="OptionsScreen" type="PanelContainer" parent="Center/Row" unique_id=200000002]
+custom_minimum_size = Vector2(360, 760)
 layout_mode = 2
+
+[node name="OptionsMargin" type="MarginContainer" parent="Center/Row/OptionsScreen" unique_id=200000003]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Options" type="VBoxContainer" parent="Center/Row/OptionsScreen/OptionsMargin" unique_id=785272467]
+layout_mode = 2
+size_flags_vertical = 0
 theme_override_constants/separation = 6
 
 [node name="Ending" type="Control" parent="." unique_id=1043594789]

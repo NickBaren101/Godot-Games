@@ -22,7 +22,7 @@ Audio="*res://scripts/audio.gd"
 
 [display]
 
-window/size/viewport_width=480
+window/size/viewport_width=900
 window/size/viewport_height=800
 window/stretch/mode="canvas_items"
 

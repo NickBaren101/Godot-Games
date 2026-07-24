@@ -8,6 +8,7 @@ const MORE_ID := "__more__"
 var battery: float = Config.START_BATTERY
 var state: State = State.SENDING          # blocked until the opening finishes
 var current_act: int = 0
+var _pending_act: int = 0                 # act crossed but not yet played (deferred to IDLE)
 var displayed_digit: int = int(ceil(Config.START_BATTERY))
 var low_power := false
 var finale_started := false
@@ -24,13 +25,14 @@ var _silence_exhausted := false      # true once the generic waits[] pool is spe
 # Option window (for the "more…" row)
 var _opt_offset := 0
 
-@onready var _contact: Label = $Center/Phone/PhoneMargin/VBox/Header/ContactName
-@onready var _battery_label: Label = $Center/Phone/PhoneMargin/VBox/Header/BatteryLabel
-@onready var _battery_bar: ColorRect = $Center/Phone/PhoneMargin/VBox/BatteryBar
-@onready var _battery_fill: ColorRect = $Center/Phone/PhoneMargin/VBox/BatteryBar/Fill
-@onready var _phone: PanelContainer = $Center/Phone
-@onready var _transcript = $Center/Phone/PhoneMargin/VBox/Transcript
-@onready var _options: VBoxContainer = $Center/Phone/PhoneMargin/VBox/Options
+@onready var _contact: Label = $Center/Row/Phone/PhoneMargin/VBox/Header/ContactName
+@onready var _battery_label: Label = $Center/Row/Phone/PhoneMargin/VBox/Header/BatteryLabel
+@onready var _battery_bar: ColorRect = $Center/Row/Phone/PhoneMargin/VBox/BatteryBar
+@onready var _battery_fill: ColorRect = $Center/Row/Phone/PhoneMargin/VBox/BatteryBar/Fill
+@onready var _phone: PanelContainer = $Center/Row/Phone
+@onready var _transcript = $Center/Row/Phone/PhoneMargin/VBox/Transcript
+@onready var _options: VBoxContainer = $Center/Row/OptionsScreen/OptionsMargin/Options
+@onready var _options_screen: PanelContainer = $Center/Row/OptionsScreen
 @onready var _ending = $Ending
 
 
@@ -60,6 +62,7 @@ func _style_phone() -> void:
 	s.content_margin_top = 0
 	s.content_margin_bottom = 0
 	_phone.add_theme_stylebox_override("panel", s)
+	_options_screen.add_theme_stylebox_override("panel", s)
 	_contact.add_theme_color_override("font_color", Config.COL_TEXT_MUTED)
 	_battery_label.add_theme_color_override("font_color", Config.COL_BATTERY)
 	_battery_fill.position = Vector2.ZERO
@@ -112,10 +115,15 @@ func _check_thresholds() -> void:
 		return
 
 	if not finale_started:
+		# Record act crossings as they happen, but only *play* the transition when it's
+		# the player's turn (IDLE). Otherwise the next act's messages jump ahead of the
+		# reply the contact is still typing to the message the player just sent.
 		if current_act < 2 and battery <= 3.0:
-			_advance_act(2)
+			_pending_act = maxi(_pending_act, 2)
 		if current_act < 3 and battery <= 2.0:
-			_advance_act(3)
+			_pending_act = maxi(_pending_act, 3)
+		if _pending_act > current_act and state == State.IDLE:
+			_advance_act(current_act + 1)
 
 
 func _advance_act(act: int) -> void:
