@@ -1,137 +1,298 @@
 {
-  "contact_name": "[CONTACT]",
-  "unsaid_header": "[HEADER] placeholder heading for the unsent list",
+  "contact_name": "didi",
+  "unsaid_header": "Things you didn't say",
   "opening": [
-	{ "text": "[OPEN-1] placeholder opening message one", "delay": 0.8 },
-	{ "text": "[OPEN-2] placeholder opening message two goes here", "delay": 1.6 }
+    { "text": "You're at the airport.", "delay": 0.8 },
+    { "text": "Who told you.", "delay": 2.2 }
   ],
   "opening_silence": [
-	{ "idle_time": 18, "text": "[OPEN-SILENCE-1] placeholder nudge after the opening goes unanswered" },
-	{ "idle_time": 22, "text": "[OPEN-SILENCE-2] placeholder second nudge if still silent" }
+    { "idle_time": 18, "text": "Are you there." },
+    { "idle_time": 22, "text": "Don't do this again. Not tonight." }
   ],
   "act_transitions": {
-	"2": [
-	  { "text": "[T2] placeholder act two transition message" }
-	],
-	"3": [
-	  { "text": "[T3] placeholder act three transition message here" }
-	]
+    "2": [
+      { "text": "The doctor came again. Third time tonight. That's not a good number." },
+      { "text": "He asked if the family was all here. I said almost." }
+    ],
+    "3": [
+      { "text": "They're letting me sit next to him now." },
+      { "text": "His breathing sounds like waves. The nurse said that's normal. Normal." }
+    ]
   },
   "options": [
-	{
-	  "id": "a1_a", "act": 1, "start": true,
-	  "text": "[A1-a] short",
-	  "reply": ["[REPLY a1_a] placeholder reply line"],
-	  "unlocks": ["a1_c"]
-	},
-	{
-	  "id": "a1_b", "act": 1, "start": true,
-	  "text": "[A1-b] medium length placeholder option text here yeah",
-	  "reply": ["[REPLY a1_b-1] placeholder", "[REPLY a1_b-2] placeholder second bubble here"],
-	  "silence": [
-		{ "idle_time": 15, "text": "[SILENCE a1_b-1] placeholder single follow-up after silence" }
-	  ]
-	},
-	{
-	  "id": "a1_c", "act": 1, "start": false,
-	  "text": "[A1-c] unlocked long placeholder option text that runs on a while to exercise cost",
-	  "reply": ["[REPLY a1_c] placeholder reply for the unlocked option"]
-	},
-	{
-	  "id": "a1_d", "act": 1, "start": true,
-	  "text": "[A1-d] medium placeholder that removes another option",
-	  "reply": ["[REPLY a1_d] placeholder"],
-	  "removes": ["a1_e"]
-	},
-	{
-	  "id": "a1_e", "act": 1, "start": true,
-	  "text": "[A1-e] short two",
-	  "reply": ["[REPLY a1_e] placeholder"]
-	},
-	{
-	  "id": "a1_p", "act": 1, "start": true, "persistent": true,
-	  "text": "[A1-p] persistent short",
-	  "reply": ["[REPLY a1_p] placeholder persistent reply"]
-	},
-	{
-	  "id": "a2_a", "act": 2, "start": true,
-	  "text": "[A2-a] medium length placeholder option for the second act",
-	  "reply": ["[REPLY a2_a-1] placeholder", "[REPLY a2_a-2] placeholder", "[REPLY a2_a-3] third bubble"]
-	},
-	{
-	  "id": "a2_b", "act": 2, "start": true,
-	  "text": "[A2-b] long placeholder option text for act two that keeps going to raise its cost",
-	  "reply": ["[REPLY a2_b] placeholder reply"],
-	  "unlocks": ["a2_c"],
-	  "silence": [
-		{ "idle_time": 20, "text": "[SILENCE a2_b-1] placeholder first follow-up when the player says nothing" },
-		{ "idle_time": 25, "text": "[SILENCE a2_b-2] placeholder the contact starts to explain itself here" },
-		{ "idle_time": 30, "text": "[SILENCE a2_b-3] placeholder final line after which the contact goes quiet", "final": true }
-	  ]
-	},
-	{
-	  "id": "a2_c", "act": 2, "start": false,
-	  "text": "[A2-c] unlocked medium placeholder option in act two",
-	  "reply": ["[REPLY a2_c] placeholder"]
-	},
-	{
-	  "id": "a2_d", "act": 2, "start": true,
-	  "text": "[A2-d] short",
-	  "reply": ["[REPLY a2_d] placeholder"]
-	},
-	{
-	  "id": "a3_a", "act": 3, "start": true,
-	  "text": "[A3-a] long placeholder option for the third act that runs on to exercise the cost",
-	  "reply": ["[REPLY a3_a-1] placeholder", "[REPLY a3_a-2] placeholder second"],
-	  "unlocks": ["a3_e"]
-	},
-	{
-	  "id": "a3_b", "act": 3, "start": true,
-	  "text": "[A3-b] medium placeholder option text act three",
-	  "reply": ["[REPLY a3_b] placeholder"]
-	},
-	{
-	  "id": "a3_c", "act": 3, "start": true,
-	  "text": "[A3-c] short three",
-	  "reply": ["[REPLY a3_c] placeholder"],
-	  "removes": ["a3_d"]
-	},
-	{
-	  "id": "a3_d", "act": 3, "start": true,
-	  "text": "[A3-d] medium placeholder option removed by a3_c",
-	  "reply": ["[REPLY a3_d] placeholder"]
-	},
-	{
-	  "id": "a3_e", "act": 3, "start": false,
-	  "text": "[A3-e] unlocked long placeholder option in act three to round out the pool nicely",
-	  "reply": ["[REPLY a3_e] placeholder"]
-	}
+    {
+      "id": "a1_aman", "act": 1, "start": true,
+      "text": "aman told me. he saw you at the hospital last week",
+      "reply": [
+        "Aman.",
+        "He was here Tuesday. Sat with Papa for an hour so I could go wash my face."
+      ],
+      "silence": [
+        { "idle_time": 16, "text": "I'm not angry at him." },
+        { "idle_time": 20, "text": "Someone should have told you. There. I said it.", "final": true }
+      ]
+    },
+    {
+      "id": "a1_how", "act": 1, "start": true,
+      "text": "how is he",
+      "reply": [
+        "Not good.",
+        "They moved him to the ICU around 11. His pressure keeps dropping and coming back."
+      ],
+      "unlocks": ["a1_awake"]
+    },
+    {
+      "id": "a1_awake", "act": 1, "start": false,
+      "text": "is he awake",
+      "reply": [
+        "In and out. More out.",
+        "He's sedated. It's easier when he's sedated. For him I mean."
+      ]
+    },
+    {
+      "id": "a1_here", "act": 1, "start": true,
+      "text": "i'm at the gate. boarding in 40 minutes",
+      "reply": [
+        "Okay.",
+        "Good."
+      ]
+    },
+    {
+      "id": "a1_battery", "act": 1, "start": true,
+      "text": "my phone's at 4 and i have the wrong adapter. it's going to die",
+      "reply": [
+        "Then don't spend it on me."
+      ]
+    },
+    {
+      "id": "a1_why", "act": 1, "start": true,
+      "text": "why didn't you tell me. any of you. i had to hear my own father is dying from aman",
+      "reply": [
+        "You changed the number."
+      ],
+      "unlocks": ["a2_knowing"],
+      "silence": [
+        { "idle_time": 18, "text": "I tried the old one anyway. In March." },
+        { "idle_time": 22, "text": "A man in Noida answered. He was nice about it. Said people call for you sometimes.", "final": true }
+      ]
+    },
+    {
+      "id": "a1_ma", "act": 1, "start": true,
+      "text": "where's ma",
+      "reply": [
+        "Asleep in the family room. I put my shawl over her.",
+        "She won't lie down properly. Keeps her chappals on. Ready to run somewhere I suppose."
+      ]
+    },
+    {
+      "id": "a1_land", "act": 1, "start": true,
+      "text": "i land at 9:10. straight to the hospital from there",
+      "reply": [
+        "Montu will get you. Gate 2.",
+        "He still has the same car. You'll see it and feel like nothing changed. Then you'll get here."
+      ]
+    },
+    {
+      "id": "a1_sorry", "act": 1, "start": true,
+      "text": "i'm sorry",
+      "reply": [
+        "For which part."
+      ],
+      "unlocks": ["a3_which_part"]
+    },
+    {
+      "id": "a1_ok", "act": 1, "start": true, "persistent": true,
+      "text": "ok",
+      "reply": [
+        "Ok."
+      ]
+    },
+    {
+      "id": "a2_doctor", "act": 2, "start": true,
+      "text": "what did the doctor actually say. tell me straight",
+      "reply": [
+        "Three days ago they asked us whether to keep going with the full treatment. All of it.",
+        "I said no. I decided on the stairwell outside radiology. I had about four minutes and a paper cup of chai."
+      ],
+      "unlocks": ["a2_right", "a2_alone"],
+      "silence": [
+        { "idle_time": 20, "text": "You went quiet." },
+        { "idle_time": 24, "text": "Good. It deserves a bit of quiet.", "final": true }
+      ]
+    },
+    {
+      "id": "a2_right", "act": 2, "start": false,
+      "text": "you made the right call didi",
+      "reply": [
+        "I didn't need it to be right.",
+        "I needed to not be the only one in the stairwell. That's all I needed."
+      ]
+    },
+    {
+      "id": "a2_alone", "act": 2, "start": false,
+      "text": "you shouldn't have had to decide that alone. i should have been in that stairwell with you",
+      "reply": [
+        "Yes.",
+        "Well.",
+        "You're in an airport. It's a start."
+      ]
+    },
+    {
+      "id": "a2_knowing", "act": 2, "start": false,
+      "text": "you knew where i live. aman knows. you could have reached me any time you wanted",
+      "reply": [
+        "I know your building. I know the flat number. I know your Sunday market.",
+        "Knowing was never the problem."
+      ],
+      "unlocks": ["a3_then_why"]
+    },
+    {
+      "id": "a2_you_ok", "act": 2, "start": true,
+      "text": "are you ok",
+      "reply": [
+        "I'm fine."
+      ],
+      "silence": [
+        { "idle_time": 16, "text": "No one's asked me that since February, actually." },
+        { "idle_time": 20, "text": "Fine is the wrong word. Upright. I'm upright and I know where the good bathroom is to cry in." },
+        { "idle_time": 26, "text": "Sixth floor, past the chemist. For your information. For tomorrow.", "final": true }
+      ]
+    },
+    {
+      "id": "a2_eaten", "act": 2, "start": true,
+      "text": "have you eaten anything",
+      "reply": [
+        "There's a machine downstairs that makes something brown.",
+        "I've had four. Meena bua brought parathas at midnight but nobody could."
+      ]
+    },
+    {
+      "id": "a2_know_coming", "act": 2, "start": true,
+      "text": "does papa know i'm coming",
+      "reply": [
+        "No.",
+        "I'll tell him when your plane is actually in the air. I've stopped giving him things that might not arrive."
+      ],
+      "unlocks": ["a3_in_air"]
+    },
+    {
+      "id": "a2_video", "act": 2, "start": true,
+      "text": "can you video call for one minute. i just want to see his face",
+      "reply": [
+        "Your phone would die on the ringing screen.",
+        "And not like this. You'll see him with your own eyes in six hours. That's the version he'd want."
+      ]
+    },
+    {
+      "id": "a2_flight", "act": 2, "start": true,
+      "text": "they're calling my boarding group",
+      "reply": [
+        "Go. Sit near the front.",
+        "Every minute matters on the other side."
+      ]
+    },
+    {
+      "id": "a2_how_long", "act": 2, "start": true,
+      "text": "how long are they saying. honestly",
+      "reply": [
+        "They stopped saying numbers on Tuesday.",
+        "It stopped being weeks a while ago. Tonight it stopped being days. So."
+      ]
+    },
+    {
+      "id": "a3_then_why", "act": 3, "start": false,
+      "text": "then why",
+      "reply": [
+        "Papa told us not to.",
+        "He said if you wanted to know us, you knew the number.",
+        "I told him it was cruel. He said so was leaving."
+      ]
+    },
+    {
+      "id": "a3_which_part", "act": 3, "start": false,
+      "text": "for leaving the way i left. for the number. for making aman do this family's job for three years",
+      "reply": [
+        "Thank you.",
+        "That's all I wanted. The list. Someone else holding the list for a minute."
+      ],
+      "removes": ["a1_why"]
+    },
+    {
+      "id": "a3_three_weeks", "act": 3, "start": true,
+      "text": "aman told me three weeks ago. i've had the ticket open in a tab for three weeks. i couldn't press buy. i don't know what was wrong with me",
+      "reply": [
+        "Three weeks.",
+        "You pressed it tonight.",
+        "That's the version I'm keeping. Don't argue with me about it."
+      ]
+    },
+    {
+      "id": "a3_why_left", "act": 3, "start": true,
+      "text": "i didn't leave to hurt anyone. staying was turning me into someone i didn't want you to meet",
+      "reply": [
+        "I know.",
+        "I always knew. That was the part I couldn't explain to him."
+      ]
+    },
+    {
+      "id": "a3_scared", "act": 3, "start": true,
+      "text": "i'm scared didi",
+      "reply": [
+        "me too",
+        "First time anyone in this family has said that out loud, I think."
+      ]
+    },
+    {
+      "id": "a3_in_air", "act": 3, "start": false,
+      "text": "we take off in a few minutes. it's real now. you can tell him. please tell him",
+      "reply": [
+        "Telling him now.",
+        "I'm holding his hand and saying it. His eyebrows moved.",
+        "He heard me. He heard it."
+      ]
+    },
+    {
+      "id": "a3_after", "act": 3, "start": true,
+      "text": "what happens to you after all this. have you thought about you at all",
+      "reply": [
+        "I don't let myself.",
+        "One corridor at a time."
+      ]
+    },
+    {
+      "id": "a3_stay", "act": 3, "start": true,
+      "text": "i'm not disappearing again. whatever happens in the morning i'm staying. i mean it this time",
+      "reply": [
+        "We'll see.",
+        "I would like that to be a true sentence."
+      ]
+    }
   ],
   "waits": [
-	{ "act": 1, "text": "[WAIT a1-1] placeholder unprompted line for act one" },
-	{ "act": 1, "text": "[WAIT a1-2] placeholder unprompted line" },
-	{ "act": 2, "text": "[WAIT a2-1] placeholder unprompted line for act two" },
-	{ "act": 2, "text": "[WAIT a2-2] placeholder unprompted line" },
-	{ "act": 3, "text": "[WAIT a3-1] placeholder unprompted line for act three" },
-	{ "act": 3, "text": "[WAIT a3-2] placeholder unprompted line" }
+    { "act": 1, "text": "Still there." },
+    { "act": 1, "text": "I can see your dots starting and stopping. Type the thing." },
+    { "act": 2, "text": "The corridor smells like phenyl and someone's marigolds. There's a puja going in the next ward." },
+    { "act": 2, "text": "He checks the weather where you are. Every night after the news. He knew it rained on you yesterday." },
+    { "act": 3, "text": "His hand keeps doing the two finger tap. Like he's checking the shop shutter one more time." },
+    { "act": 3, "text": "Don't save the battery. Whatever you're saving it for, this is the thing it was for." }
   ],
   "finale": {
-	"messages": [
-	  "[FIN-1] placeholder finale message one",
-      "[FIN-2] placeholder finale message two"
-	],
-	"options": [
-	  { "id": "f_1", "text": "[FIN-OPT-1] short" },
-	  { "id": "f_2", "text": "[FIN-OPT-2] medium placeholder finale option" },
-	  { "id": "f_3", "text": "[FIN-OPT-3] another medium placeholder finale option here" },
-	  { "id": "f_4", "text": "[FIN-OPT-4] long placeholder finale option text that runs on to cost more battery" }
-	],
-	"delivered_reply": [
-	  "[FIN-REPLY-1] placeholder delivered reply bubble",
-      "[FIN-REPLY-2] placeholder final delivered reply that gets cut off partway through as the phone finally dies here"
-	],
-	"closing_delivered": "[CLOSE-DELIVERED] placeholder closing line for the delivered path",
-	"closing_failed": "[CLOSE-FAILED] placeholder closing line for the failed path",
-	"closing_final": "[CLOSE-FINAL] placeholder final closing line"
+    "messages": [
+      "He's surfacing. The nurse says a few minutes, maybe.",
+      "I'm going in. Give me one thing to carry. Quick."
+    ],
+    "options": [
+      { "id": "f_love", "text": "i love you" },
+      { "id": "f_home", "text": "tell him i'm coming home" },
+      { "id": "f_sorry", "text": "tell him i'm sorry. he'll know for what" },
+      { "id": "f_hand", "text": "don't tell him anything. just hold his hand and don't let go until i'm there. that one's from me" }
+    ],
+    "delivered_reply": [
+      "Okay.",
+      "He heard. His eyes are open. He's trying to say something back, wait, he wants me to type it exactly, he's saying"
+    ],
+    "closing_delivered": "It sent.",
+    "closing_failed": "It didn't send.",
+    "closing_final": "didi was typing."
   }
 }
