@@ -2,7 +2,7 @@ extends Node
 
 const MIX_RATE := 22050.0
 
-func blip(freq: float, duration: float, volume: float) -> void:
+func blip(freq: float, duration: float, volume: float, decay: float = 0.0) -> void:
 	var gen := AudioStreamGenerator.new()
 	gen.mix_rate = MIX_RATE
 	gen.buffer_length = maxf(0.25, duration + 0.1)
@@ -22,6 +22,8 @@ func blip(freq: float, duration: float, volume: float) -> void:
 				break
 			var phase := fmod(float(i), period) / period
 			var s: float = volume if phase < 0.5 else -volume
+			if decay > 0.0:                       # ramp amplitude down so the tone doesn't ring out
+				s *= maxf(0.0, 1.0 - (float(i) / float(frames)) * decay)
 			if i > frames - fade:
 				s *= float(frames - i) / fade
 			pb.push_frame(Vector2(s, s))
@@ -32,16 +34,17 @@ func blip(freq: float, duration: float, volume: float) -> void:
 # --- Named events (GDD §11) ----------------------------------------------
 
 func send() -> void:
-	blip(880.0, 0.05, 0.18)
+	# flat, low-pitched — a soft outgoing "thunk", quick decay so it doesn't ring out
+	blip(150.0, 0.07, 0.17, 0.8)
 
 func receive() -> void:
-	blip(660.0, 0.06, 0.28)
+	# tiny two-note ring, like a message notification: short low-ish, then longer higher
+	blip(1319.0, 0.035, 0.20)
+	await get_tree().create_timer(0.05).timeout
+	blip(2093.0, 0.08, 0.20)
 
 func send_fail() -> void:
 	blip(220.0, 0.18, 0.32)
-
-func digit_drop() -> void:
-	blip(330.0, 0.12, 0.30)
 
 func low_power() -> void:
 	blip(300.0, 0.1, 0.30)

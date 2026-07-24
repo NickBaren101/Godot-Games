@@ -106,9 +106,6 @@ func _check_thresholds() -> void:
 	if digit < displayed_digit:
 		displayed_digit = digit
 		_flash_battery()
-		if digit >= 2:
-			Audio.digit_drop()
-		# the drop to 1 coincides with the finale; its tone is played there.
 
 	if not finale_started and battery <= Config.LOW_POWER_AT:
 		_run_finale()
