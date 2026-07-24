@@ -22,7 +22,7 @@
   "options": [
 	{
 	  "id": "a1_battery", "act": 1, "start": true,
-	  "text": "my phone's at 4 and i have the wrong adapter. it's going to die",
+	  "text": "my phone's at 4% and i have the wrong adapter. it's going to die",
 	  "reply": [
         "Then don't spend it on me."
 	  ]
@@ -306,7 +306,7 @@
 	}
   ],
   "waits": [
-	{ "act": 1, "text": "Still there." },
+	{ "act": 1, "text": "Still there?" },
 	{ "act": 1, "text": "I can see your dots starting and stopping. Type the thing." },
 	{ "act": 1, "text": "Adam shows me photos of you sometimes. From his phone. You look thin in them." },
 	{ "act": 2, "text": "The corridor smells like bleach and someone's flowers. A family is praying in the next ward." },
@@ -317,7 +317,7 @@
   "finale": {
 	"messages": [
 	  "He's surfacing. The nurse says a few minutes, maybe.",
-      "I'm going in. Give me one thing to carry. Quick."
+      "I'm going in. Give me your message. Quick."
 	],
 	"options": [
 	  { "id": "f_love", "text": "i love you" },
