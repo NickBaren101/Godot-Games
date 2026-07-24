@@ -261,6 +261,10 @@ func _maybe_nudge() -> void:
 		var entry: Dictionary = _silence_chain[0]
 		if _idle_time >= float(entry.get("idle_time", Config.FALLBACK_IDLE_TIME)):
 			_silence_chain.pop_front()
+			# A `final` last line ends the exchange: the contact finishes its thought and
+			# goes quiet, with no generic waits[] "you there?" nudge tacked on afterward.
+			if _silence_chain.is_empty() and bool(entry.get("final", false)):
+				_silence_exhausted = true
 			_fire_incoming(String(entry.get("text", "")))
 	elif not _silence_exhausted and _idle_time >= Config.FALLBACK_IDLE_TIME:
 		var line: String = convo.pull_wait(current_act)

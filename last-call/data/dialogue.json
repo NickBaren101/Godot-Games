@@ -66,7 +66,7 @@
 	  "silence": [
 		{ "idle_time": 20, "text": "[SILENCE a2_b-1] placeholder first follow-up when the player says nothing" },
 		{ "idle_time": 25, "text": "[SILENCE a2_b-2] placeholder the contact starts to explain itself here" },
-		{ "idle_time": 30, "text": "[SILENCE a2_b-3] placeholder final escalating follow-up before the pool falls back" }
+		{ "idle_time": 30, "text": "[SILENCE a2_b-3] placeholder final line after which the contact goes quiet", "final": true }
 	  ]
 	},
 	{

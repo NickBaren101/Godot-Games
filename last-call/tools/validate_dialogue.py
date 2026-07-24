@@ -63,6 +63,8 @@ def validate_silence(chain, label, errors):
         txt = entry.get("text")
         if not isinstance(txt, str) or txt.strip() == "":
             errors.append("%s[%d] text must be a non-empty string" % (label, i))
+        if "final" in entry and not isinstance(entry.get("final"), bool):
+            errors.append("%s[%d] final must be true or false" % (label, i))
 
 
 def main():
