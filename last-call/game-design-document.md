@@ -118,7 +118,9 @@ and ship placeholder content so the engine can be built and tested before real c
 
 ```
 contact_name    string
-opening[]       { text, delay }        messages shown before the player's first turn
+opening[]       { text, delay, outgoing? }   messages already on screen before the player's
+                first turn. outgoing:true renders it as a player-sent message (opens the chat
+                mid-conversation); default is incoming from the contact. Never cost battery.
 opening_silence[] { idle_time, text }  follow-ups sent if the opening goes unanswered (see §8)
 act_transitions { "2": [{text}], "3": [{text}] }   fired when the digit drops
 options[]

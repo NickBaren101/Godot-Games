@@ -146,8 +146,12 @@ func _play_opening() -> void:
 		await get_tree().create_timer(delay).timeout
 		if _halted:
 			return
-		Audio.receive()
-		_transcript.add_incoming(String(msg.get("text", "")))
+		if bool(msg.get("outgoing", false)):      # a player message already on screen (no battery cost)
+			Audio.send()
+			_transcript.add_outgoing(String(msg.get("text", "")))
+		else:
+			Audio.receive()
+			_transcript.add_incoming(String(msg.get("text", "")))
 	if finale_started:
 		return
 	_reset_silence(convo.data.get("opening_silence", []))
