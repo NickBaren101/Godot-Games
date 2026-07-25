@@ -183,7 +183,7 @@ func _refresh_options() -> void:
 	var count: int = Config.MAX_VISIBLE_OPTIONS if show_more else total
 	for i in range(count):
 		var opt: Dictionary = opts[(_opt_offset + i) % total]
-		_add_row(String(opt.get("id", "")), String(opt.get("text", "")), Config.cost_label(String(opt.get("text", ""))), _on_option_chosen)
+		_add_row(String(opt.get("id", "")), String(opt.get("text", "")), "", _on_option_chosen)
 	if show_more:
 		_add_row(MORE_ID, "more…", "", _on_option_chosen)
 
@@ -331,7 +331,7 @@ func _render_finale_options(options: Array) -> void:
 	_clear_options()
 	for opt in options:
 		var text: String = String(opt.get("text", ""))
-		_add_row(String(opt.get("id", "")), text, Config.cost_label(text), _on_finale_chosen)
+		_add_row(String(opt.get("id", "")), text, "", _on_finale_chosen)
 
 
 func _on_finale_chosen(id: String) -> void:

@@ -91,7 +91,7 @@ delivered" marker. That is a consequence of the choice, not chance. Do not add a
 
 ## 4. Core loop
 
-1. Player sees the transcript, the battery digit, and 3–5 options with costs.
+1. Player sees the transcript, the battery digit, and 3–5 options.
 2. Player clicks an option (send) or holds `Space` (wait).
 3. Battery decreases.
 4. A reply arrives after a typing delay, during which battery continues to drain.
@@ -104,8 +104,9 @@ player has to look past the cheap ones to reach them. This ordering is load-bear
 **Cap the visible list at 5.** If the pool is larger, show the 5 cheapest plus a sixth row
 reading `more…` that cycles the window. Do not scroll the option list.
 
-**Cost display:** two decimals, e.g. `0.04%`. Against a `4%` battery that reads as alarmingly
-expensive, which is correct.
+**Costs are not shown.** Sending still spends battery (`max(0.02, len · COST_PER_CHAR)`), but the
+amount is not displayed beside each option — the player feels the drop after sending rather than
+reading a number. Cheapest-first ordering is the only remaining cue.
 
 ---
 
