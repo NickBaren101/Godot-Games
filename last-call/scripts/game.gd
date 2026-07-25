@@ -148,7 +148,7 @@ func _play_opening() -> void:
 			return
 		if bool(msg.get("outgoing", false)):      # a player message already on screen (no battery cost)
 			Audio.send()
-			_transcript.add_outgoing(String(msg.get("text", "")))
+			await _transcript.add_outgoing(String(msg.get("text", "")))
 		else:
 			Audio.receive()
 			_transcript.add_incoming(String(msg.get("text", "")))
@@ -209,10 +209,10 @@ func _on_option_chosen(id: String) -> void:
 	var text: String = String(opt.get("text", ""))
 	var cost: float = Config.send_cost(text)
 	battery = maxf(battery - cost, 0.0)
+	_update_battery_display()
 	Audio.send()
 	_clear_options()
-	_transcript.add_outgoing(text)
-	_update_battery_display()
+	await _transcript.add_outgoing(text)   # stream the player's message before the reply
 
 	await _run_reply(opt.get("reply", []))
 	if finale_started:
@@ -341,7 +341,7 @@ func _on_finale_chosen(id: String) -> void:
 	battery = maxf(after, 0.0)
 	_update_battery_display()
 	Audio.send()
-	_transcript.add_outgoing(text, not delivered)
+	await _transcript.add_outgoing(text, not delivered)
 
 	if delivered:
 		await _run_finale_reply(fin.get("delivered_reply", []))

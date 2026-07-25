@@ -17,13 +17,14 @@ func add_incoming(text: String) -> void:
 	b.reveal(false)
 	_auto_scroll()
 
-## Outgoing message — blue, right, shown instantly. failed=true adds the
-## "not delivered" marker beneath it.
+## Outgoing message — blue, right, streamed character by character (await returns
+## when the reveal finishes). failed=true adds the "not delivered" marker beneath it.
 func add_outgoing(text: String, failed: bool = false) -> void:
 	var b := BubbleScene.instantiate()
 	_messages.add_child(b)
 	b.setup(text, false, failed)
-	b.reveal(true)
+	_auto_scroll()
+	await b.reveal(false)
 	if failed:
 		var marker := Label.new()
 		marker.text = "not delivered"

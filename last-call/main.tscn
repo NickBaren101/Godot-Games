@@ -76,6 +76,7 @@ color = Color(0.752941, 0.478431, 0.368627, 1)
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 script = ExtResource("2_trans")
 
 [node name="Messages" type="VBoxContainer" parent="Center/Row/Phone/PhoneMargin/VBox/Transcript" unique_id=856130434]

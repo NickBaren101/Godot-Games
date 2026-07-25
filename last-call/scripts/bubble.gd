@@ -49,3 +49,4 @@ func reveal(instant: bool = false) -> void:
 	var dur: float = maxf(0.05, _label.text.length() * REVEAL_PER_CHAR)
 	var tw := create_tween()
 	tw.tween_property(_label, "visible_ratio", 1.0, dur)
+	await tw.finished
