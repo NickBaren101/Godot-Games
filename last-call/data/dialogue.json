@@ -2,7 +2,7 @@
   "contact_name": "sis",
   "unsaid_header": "Things you didn't say",
   "opening": [
-	{ "text": "how's papa?", "delay": 0.8, "outgoing": true },
+	{ "text": "how's dad", "delay": 0.8, "outgoing": true },
 	{ "text": "i'm at the airport. i'm flying back tonight", "delay": 1.3, "outgoing": true },
 	{ "text": "You're at the airport?", "delay": 1.8 },
 	{ "text": "Who told you.", "delay": 2.2 }

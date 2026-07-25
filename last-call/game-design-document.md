@@ -208,8 +208,10 @@ Acts advance on **battery thresholds, not player progress.** This guarantees the
 regardless of what the player picks, which matters because not every branch can be playtested.
 
 When the float crosses `3.00` or `2.00`: push that act's `act_transitions` messages, then add
-all options with `act <= current_act` to the pool. **Options never expire** — act 1 options
-remain available in act 3.
+this act's start options to the pool. **Previous-act options retire** — when the act advances,
+any unsent option from an earlier act leaves the pool (its window has closed). Future-act options
+that appeared early via an unlock are kept. An unsent option that was shown still counts as
+"unsaid" in the ending.
 
 ---
 

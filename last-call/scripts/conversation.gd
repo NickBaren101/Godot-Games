@@ -29,13 +29,20 @@ func load_file(path: String) -> String:
 
 # --- Pool -----------------------------------------------------------------
 
-## Advance to an act, activating every start option eligible at that act. Options
-## never expire, so this only ever adds. Idempotent per act.
+## Advance to an act: activate this act's start options, and retire any option from an
+## earlier act (its window has closed). Future-act options shown early via an unlock are
+## kept. Idempotent per act.
 func enter_act(act: int) -> void:
 	current_act = maxi(current_act, act)
 	for opt in _all_options:
-		if bool(opt.get("start", false)) and _act_of(opt) <= current_act:
-			_activated[String(opt.get("id", ""))] = true
+		var id := String(opt.get("id", ""))
+		if _act_of(opt) < current_act:
+			# a previous-act option does not carry forward (still counts as "unsent"
+			# in the ending if it was ever shown — _entered is untouched here).
+			if not _sent.has(id):
+				_removed[id] = true
+		elif bool(opt.get("start", false)) and _act_of(opt) <= current_act:
+			_activated[id] = true
 
 ## Currently sendable options, cheapest first (GDD §4). Also marks anything shown
 ## as having "entered the pool" for the finale's unsent list.
