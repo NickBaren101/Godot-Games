@@ -45,7 +45,10 @@ func visible_options() -> Array:
 		var id := String(opt.get("id", ""))
 		if not _activated.has(id):
 			continue
-		if _act_of(opt) > current_act:
+		# Start options only enter _activated once their act is reached, so they gate
+		# themselves. An unlocked option appears immediately — unless it is explicitly
+		# deferred, in which case it waits for its act (a beat meant to land later).
+		if bool(opt.get("defer", false)) and _act_of(opt) > current_act:
 			continue
 		if _removed.has(id):
 			continue

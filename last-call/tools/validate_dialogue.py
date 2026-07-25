@@ -137,6 +137,9 @@ def main():
         if act not in (1, 2, 3):
             errors.append("option '%s' has act %r (must be 1, 2, or 3)"
                           % (opt.get("id"), act))
+        if "defer" in opt and not isinstance(opt.get("defer"), bool):
+            errors.append("option '%s' defer must be true or false"
+                          % opt.get("id"))
 
     # --- silence chains (options + opening_silence) -----------------------
     for opt in options:

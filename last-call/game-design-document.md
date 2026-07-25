@@ -126,12 +126,14 @@ act_transitions { "2": [{text}], "3": [{text}] }   fired when the digit drops
 options[]
   id          string, unique
   text        string, what the player sends. Cost is DERIVED, never stored in the file.
-  act         int 1–3, minimum act at which this enters the pool
+  act         int 1–3. For start options, the act they auto-enter. Unlock-only options
+              ignore this (they appear the moment they're unlocked) unless defer is set.
   start       bool, in the pool from the beginning if act <= current act
   reply[]     array of strings — each becomes its own bubble with its own typing delay
-  unlocks[]   option ids added to the pool after this is sent
+  unlocks[]   option ids added to the pool when this is sent — they appear immediately
   removes[]   option ids deleted from the pool after this is sent
   persistent  optional bool — if true, the option is not consumed when sent
+  defer       optional bool — unlock-only: keep hidden until its act (a later-surfacing beat)
   silence[]   optional { idle_time, text, final? } — ordered follow-ups the contact sends
               if the player stays silent after this option's reply; each fires after
               idle_time seconds of silence, in order. A reply cancels the rest of the

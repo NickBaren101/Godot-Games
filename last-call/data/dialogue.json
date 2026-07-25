@@ -298,7 +298,7 @@
 	  ]
 	},
 	{
-	  "id": "a3_in_air", "act": 3, "start": false,
+	  "id": "a3_in_air", "act": 3, "start": false, "defer": true,
 	  "text": "we take off in a few minutes. it's real now. you can tell him. please tell him",
 	  "reply": [
 		"Telling him now.",
