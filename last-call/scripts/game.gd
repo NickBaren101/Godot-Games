@@ -13,6 +13,7 @@ var displayed_digit: int = int(ceil(Config.START_BATTERY))
 var low_power := false
 var finale_started := false
 var _halted := false
+var _running := false                     # false during the intro; no battery drain until true
 
 var convo: Conversation
 
@@ -34,6 +35,7 @@ var _opt_offset := 0
 @onready var _options: VBoxContainer = $Center/Row/OptionsScreen/OptionsMargin/Options
 @onready var _options_screen: PanelContainer = $Center/Row/OptionsScreen
 @onready var _ending = $Ending
+@onready var _intro = $Intro
 
 
 func _ready() -> void:
@@ -50,6 +52,14 @@ func _ready() -> void:
 
 	current_act = 1
 	convo.enter_act(1)
+	_begin()
+
+
+func _begin() -> void:
+	var intro: Dictionary = convo.data.get("intro", {})
+	if not intro.is_empty():
+		await _intro.play(String(intro.get("title", "")), intro.get("cards", []))
+	_running = true                          # start draining only once the game proper begins
 	_play_opening()
 
 
@@ -76,7 +86,7 @@ func _fatal(msg: String) -> void:
 # --- Main loop ------------------------------------------------------------
 
 func _process(delta: float) -> void:
-	if _halted or state == State.ENDING:
+	if not _running or _halted or state == State.ENDING:
 		return
 
 	var rate: float = Config.RECEIVE_DRAIN if state == State.THEY_TYPE else _idle_rate()
@@ -374,6 +384,7 @@ func _start_closing(delivered: bool, fin: Dictionary) -> void:
 		"closing_delivered": String(fin.get("closing_delivered", "")),
 		"closing_failed": String(fin.get("closing_failed", "")),
 		"closing_final": String(fin.get("closing_final", "")),
+		"closing_thanks": String(fin.get("closing_thanks", "")),
 		"unsaid_header": String(convo.data.get("unsaid_header", "")),
 	})
 

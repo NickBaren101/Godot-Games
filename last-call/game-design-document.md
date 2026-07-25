@@ -118,6 +118,9 @@ and ship placeholder content so the engine can be built and tested before real c
 
 ```
 contact_name    string
+intro           optional { title, cards[] } — on black before the conversation, in two cuts:
+                title alone (auto-fades ~3s), then all backstory cards together; any key/click
+                fades to the phone. Omit to start straight in. No battery drain.
 opening[]       { text, delay, outgoing? }   messages already on screen before the player's
                 first turn. outgoing:true renders it as a player-sent message (opens the chat
                 mid-conversation); default is incoming from the contact. Never cost battery.
@@ -147,6 +150,7 @@ finale
   closing_delivered   string
   closing_failed      string
   closing_final       string
+  closing_thanks      optional string — sign-off shown with the replay button
 unsaid_header   string, heading for the unsent-message list
 ```
 

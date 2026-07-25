@@ -12,7 +12,7 @@ func play(delivered: bool, unsent: Array, texts: Dictionary) -> void:
 	await _card(String(texts["closing_delivered"] if delivered else texts["closing_failed"]))
 	await _unsaid(String(texts["unsaid_header"]), unsent)
 	await _card(String(texts["closing_final"]))
-	_show_replay()
+	_show_end(String(texts.get("closing_thanks", "")))
 
 
 func _card(text: String) -> void:
@@ -72,15 +72,30 @@ func _unsaid(header: String, unsent: Array) -> void:
 	col.queue_free()
 
 
-func _show_replay() -> void:
+func _show_end(thanks: String) -> void:
+	var center := CenterContainer.new()
+	center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	center.modulate.a = 0.0
+	add_child(center)
+
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 20)
+	center.add_child(box)
+
+	if thanks != "":
+		var lbl := Label.new()
+		lbl.text = thanks
+		lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		lbl.add_theme_color_override("font_color", Config.COL_TEXT)
+		box.add_child(lbl)
+
 	var btn := Button.new()
 	btn.text = "replay"
 	btn.add_theme_color_override("font_color", Config.COL_TEXT)
-	btn.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
-	btn.modulate.a = 0.0
-	add_child(btn)
+	btn.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	box.add_child(btn)
 	btn.pressed.connect(func(): get_tree().reload_current_scene())
 
 	var t := create_tween()
 	t.tween_interval(0.6)
-	t.tween_property(btn, "modulate:a", 1.0, 0.6)
+	t.tween_property(center, "modulate:a", 1.0, 0.6)

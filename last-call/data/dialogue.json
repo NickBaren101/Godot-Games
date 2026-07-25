@@ -1,6 +1,15 @@
 {
   "contact_name": "sis",
   "unsaid_header": "Things you didn't say",
+  "intro": {
+	"title": "Last Message",
+	"cards": [
+	  "You left home years ago. You didn't look back or leave a trail.",
+	  "Tonight, a news reached you anyway. Your father's heart is giving out. Days left, they say. Maybe less.",
+	  "Now you're at the airport, waiting to board the first flight home. Your phone's battery is left at 4%",
+      "Before you board, there's just enough left for one last chat with your sister."
+	]
+  },
   "opening": [
 	{ "text": "how's dad", "delay": 0.8, "outgoing": true },
 	{ "text": "i'm at the airport. i'm flying back tonight", "delay": 1.3, "outgoing": true },
@@ -333,6 +342,7 @@
 	],
 	"closing_delivered": "It sent.",
 	"closing_failed": "It didn't send.",
-	"closing_final": "sis was typing."
+	"closing_final": "sis was typing.",
+	"closing_thanks": "Thanks for playing."
   }
 }

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bb2wifjp2u8uu" path="res://scripts/game.gd" id="1_game"]
 [ext_resource type="Script" uid="uid://de1vg20nx13ig" path="res://scripts/transcript.gd" id="2_trans"]
 [ext_resource type="Script" uid="uid://c4q0edkswl74m" path="res://scripts/ending.gd" id="3_end"]
+[ext_resource type="Script" path="res://scripts/intro.gd" id="4_intro"]
 
 [node name="Main" type="Control" unique_id=1024182713]
 layout_mode = 3
@@ -111,3 +112,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("3_end")
+
+[node name="Intro" type="Control" parent="." unique_id=2100000001]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_intro")
