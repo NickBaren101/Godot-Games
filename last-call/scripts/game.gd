@@ -235,6 +235,10 @@ func _on_option_chosen(id: String) -> void:
 # --- Incoming replies -----------------------------------------------------
 
 func _run_reply(reply: Array) -> void:
+	# The finale can begin while the caller is still awaiting the player's outgoing
+	# message. It owns the state from that point on, so never stomp it back to THEY_TYPE.
+	if finale_started:
+		return
 	state = State.THEY_TYPE
 	for line in reply:
 		if finale_started:

@@ -24,7 +24,10 @@ Audio="*res://scripts/audio.gd"
 
 window/size/viewport_width=900
 window/size/viewport_height=800
+window/size/window_width_override=810
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
 
 [dotnet]
 
